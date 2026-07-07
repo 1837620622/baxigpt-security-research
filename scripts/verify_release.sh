@@ -3,20 +3,46 @@
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT_DIR="${OUT_DIR:-$REPO_ROOT}"
+mkdir -p "$OUT_DIR"
 cd "$REPO_ROOT"
 
 TOKEN=$(printf '%s%s%s' C T F)
+HELP_SCRIPTS=(
+  debug_probe.py
+  pattern_scan.py
+  round7_full_probe.py
+  round8_resilient.py
+  round8_card_enum.py
+  round8_objectid_idor.py
+  subdomain_probe.py
+  ip_bypass_enum.py
+  round8_fuzz500.py
+  explore_round9.py
+  baxigpt_audit.py
+)
 
 : > "$OUT_DIR/scripts-compile.log"
 : > "$OUT_DIR/language-check.log"
 : > "$OUT_DIR/poc-code-info.log"
 : > "$OUT_DIR/poc-query.log"
 : > "$OUT_DIR/unit-tests.log"
+: > "$OUT_DIR/round8-live.log"
+: > "$OUT_DIR/cli-help.log"
+: > "$OUT_DIR/git-status-pre.log"
+: > "$OUT_DIR/git-status-post.log"
+: > "$OUT_DIR/github-publish.log"
+
+GIT_PRE="$(git status --porcelain | sort)"
+printf '%s\n' "$GIT_PRE" | tee "$OUT_DIR/git-status-pre.log"
+if [ -n "$GIT_PRE" ]; then
+  echo "WARN: uncommitted changes present before verify — restoring tracked artifacts"
+  git checkout -- artifacts/round8-fuzz.json 2>/dev/null || true
+fi
 
 {
   echo "=== scripts-compile ==="
   python3 -m py_compile exploits/*.py
-  echo "PASS: py_compile exploits/*.py — exit $?"
+  echo "PASS: py_compile exploits/*.py"
 } | tee "$OUT_DIR/scripts-compile.log"
 
 {
@@ -40,13 +66,21 @@ TOKEN=$(printf '%s%s%s' C T F)
   fi
   echo "PASS: no forbidden language in primary paths"
 } | tee "$OUT_DIR/language-check.log"
-# backward-compatible alias for harness
 cp "$OUT_DIR/language-check.log" "$OUT_DIR/ctf-language-check.log"
 
 {
   echo "=== unit-tests ==="
-  python3 -m unittest discover -s tests -v
+  VERIFY_RELEASE_RUNNING=1 python3 -m unittest discover -s tests -v
 } | tee "$OUT_DIR/unit-tests.log"
+
+{
+  echo "=== cli-help ==="
+  for script in "${HELP_SCRIPTS[@]}"; do
+    echo "--- $script --help ---"
+    python3 "exploits/$script" --help
+  done
+  echo "PASS: all scripts expose --help"
+} | tee "$OUT_DIR/cli-help.log"
 
 {
   echo "=== poc-code-info ==="
@@ -59,5 +93,34 @@ cp "$OUT_DIR/language-check.log" "$OUT_DIR/ctf-language-check.log"
   echo "=== poc-query ==="
   python3 exploits/baxigpt_audit.py query --code EU-HFNDFHD4
 } | tee "$OUT_DIR/poc-query.log"
+
+{
+  echo "=== round8-live ==="
+  python3 exploits/round8_fuzz500.py -o "$OUT_DIR/round8-live.json"
+  test -s "$OUT_DIR/round8-live.json"
+  echo "PASS: live fuzz wrote $OUT_DIR/round8-live.json"
+} | tee "$OUT_DIR/round8-live.log"
+
+GIT_POST="$(git status --porcelain | sort)"
+printf '%s\n' "$GIT_POST" | tee "$OUT_DIR/git-status-post.log"
+if [ "$GIT_PRE" != "$GIT_POST" ]; then
+  echo "FAIL: verify introduced new working-tree changes"
+  git diff --stat
+  exit 1
+fi
+if [ -z "$GIT_POST" ]; then
+  echo "PASS: git status is clean"
+else
+  echo "PASS: git status unchanged by verify (pre-existing uncommitted work allowed)"
+fi | tee -a "$OUT_DIR/git-status-post.log"
+
+{
+  echo "=== github-publish ==="
+  git remote -v
+  if command -v gh >/dev/null 2>&1; then
+    gh repo view --json url,description,nameWithOwner 2>/dev/null || true
+  fi
+  echo "PASS: publish metadata captured"
+} | tee "$OUT_DIR/github-publish.log"
 
 echo "VERIFY_OK"

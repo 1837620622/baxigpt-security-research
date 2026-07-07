@@ -26,3 +26,4 @@ Earlier working notes and phase reports: [archive/](./archive/)
 | `artifacts/` | JSON output from automated probes |
 | `recovered-code/` | Third-party API client source |
 | `exploits/` | Reproduction scripts |
+| `scripts/verify_release.sh` | Release gate (compile, language, live PoCs, git hygiene) |

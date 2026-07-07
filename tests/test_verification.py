@@ -89,6 +89,55 @@ class TestCLIHelpEnglish(unittest.TestCase):
         self.assertNotRegex(proc.stdout, r"[\u4e00-\u9fff]")
 
 
+HELP_SCRIPTS = [
+    "debug_probe.py",
+    "pattern_scan.py",
+    "round7_full_probe.py",
+    "round8_resilient.py",
+    "round8_card_enum.py",
+    "round8_objectid_idor.py",
+    "subdomain_probe.py",
+]
+
+
+class TestExploitScriptsHelp(unittest.TestCase):
+    def test_all_primary_scripts_help_english(self):
+        for name in HELP_SCRIPTS:
+            proc = subprocess.run(
+                [sys.executable, str(REPO / "exploits" / name), "--help"],
+                capture_output=True,
+                text=True,
+                cwd=REPO,
+            )
+            self.assertEqual(proc.returncode, 0, f"{name}: {proc.stderr}")
+            self.assertNotRegex(proc.stdout, r"[\u4e00-\u9fff]", msg=name)
+
+
+class TestReleaseGate(unittest.TestCase):
+    def test_verify_release_script_passes(self):
+        import os
+        import tempfile
+
+        if os.environ.get("VERIFY_RELEASE_RUNNING"):
+            self.skipTest("skipped inside verify_release.sh to avoid recursion")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            env = {**dict(__import__("os").environ), "OUT_DIR": tmp}
+            proc = subprocess.run(
+                ["bash", str(REPO / "scripts" / "verify_release.sh")],
+                capture_output=True,
+                text=True,
+                cwd=REPO,
+                env=env,
+                timeout=180,
+            )
+            self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+            self.assertIn("VERIFY_OK", proc.stdout)
+            self.assertTrue((Path(tmp) / "round8-live.json").is_file())
+            post = (Path(tmp) / "git-status-post.log").read_text(encoding="utf-8")
+            self.assertRegex(post, r"PASS: git status (is clean|unchanged by verify)")
+
+
 class TestPocOutputShape(unittest.TestCase):
     def test_ip_bypass_enum_code_output_has_status_and_resp(self):
         proc = subprocess.run(

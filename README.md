@@ -28,6 +28,10 @@ python3 exploits/baxigpt_audit.py query --code EU-HFNDFHD4
 
 See **[docs/REPRODUCTION.md](docs/REPRODUCTION.md)** for all commands.
 
+```bash
+OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
+```
+
 ## Repository layout
 
 ```

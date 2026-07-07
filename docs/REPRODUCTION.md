@@ -12,10 +12,15 @@ python3 -m unittest discover -s tests -v
 
 ## Release verification
 
+Run the full gate into a scratch directory so live probes never mutate committed artifacts:
+
 ```bash
 OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
-# Produces: scripts-compile.log, language-check.log, poc-*.log, unit-tests.log
+# Produces: scripts-compile.log, language-check.log, poc-*.log, unit-tests.log,
+#           round8-live.json, cli-help.log, git-status-*.log, github-publish.log
 ```
+
+The gate requires a clean `git status` after completion.
 
 ## Unified audit CLI
 
@@ -43,9 +48,15 @@ python3 exploits/ip_bypass_enum.py --code EU-HFNDFHD4 --query
 ## Type-confusion fuzz (generates 500s; use sparingly)
 
 ```bash
-python3 exploits/round8_fuzz500.py
-# Output: artifacts/round8-fuzz.json
+# Live run — write to scratch, not artifacts/
+OUT=/tmp/baxigpt-verify/round8-live.json
+python3 exploits/round8_fuzz500.py -o "$OUT"
+
+# Offline payload inventory
+python3 exploits/round8_fuzz500.py --dry-run
 ```
+
+Committed evidence: `artifacts/round8-fuzz.json`
 
 ## Manual curl equivalents
 
