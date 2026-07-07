@@ -1,0 +1,114 @@
+[
+  {
+    "path": "/api/submit",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/submit",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/submit",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/code-info",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/code-info",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/code-info",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/code-info",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/code-info",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/admin/login",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/admin/login",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/admin/login",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/admin/login",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/query",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  },
+  {
+    "path": "/api/status",
+    "code": 500,
+    "leak_markers": [
+      "Error"
+    ],
+    "resp": "Internal Server Error"
+  }
+]

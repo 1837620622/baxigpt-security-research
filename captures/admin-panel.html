@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>baxigpt 后台</title>
+<style>
+:root{--bg:#0f1216;--card:#161b22;--ink:#e6edf3;--sub:#8b949e;--line:#22272e;--or:#f59e0b;--or2:#d97706;--gp:#10a37f}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"PingFang SC",Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1000px;margin:0 auto;padding:20px}
+h2{margin:0 0 16px;font-size:20px}h3{font-size:15px;color:var(--sub);margin:24px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.stat .n{font-size:24px;font-weight:800;color:var(--or)}.stat .l{font-size:12px;color:var(--sub);margin-top:4px}
+label{font-size:12px;color:var(--sub);display:block;margin-bottom:4px}
+input,select{background:#0d1117;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px;font-size:13px}
+.btn{background:var(--or);color:#1a1205;border:0;border-radius:8px;padding:9px 16px;font-weight:700;cursor:pointer;font-size:13px}
+.btn:hover{background:var(--or2)}.btn.sm{padding:5px 10px;font-size:12px}.btn.gray{background:#30363d;color:var(--ink)}.btn.red{background:#7f1d1d;color:#fecaca}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}th{color:var(--sub);font-weight:600}
+.mono{font-family:ui-monospace,Menlo,monospace}
+.tag{font-size:11px;padding:2px 7px;border-radius:999px}.t-active{background:#052e1a;color:#34d399}.t-disabled{background:#3a1212;color:#fca5a5}
+.t-paid{background:#052e1a;color:#34d399}.t-processing{background:#3a2c08;color:#fbbf24}.t-refunded,.t-expired,.t-failed{background:#3a1212;color:#fca5a5}.t-superseded{background:#2d2640;color:#c4b5fd}
+#login{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:9}
+#login .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;width:320px}
+.gen-out{margin-top:10px;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#0d1117;border:1px solid var(--line);border-radius:8px;padding:10px;max-height:200px;overflow:auto;white-space:pre-wrap}
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tab{padding:7px 14px;border-radius:8px;background:var(--card);border:1px solid var(--line);cursor:pointer;font-size:13px}.tab.on{background:var(--or);color:#1a1205;font-weight:700}
+</style></head><body>
+<div id="login"><div class="box"><h2>baxigpt 后台</h2><label>密码</label><input id="pw" type="password" style="width:100%" onkeydown="if(event.key=='Enter')login()"><button class="btn" style="width:100%;margin-top:12px" onclick="login()">登录</button><div id="lerr" style="color:#fca5a5;font-size:12px;margin-top:8px"></div></div></div>
+<div class="wrap" id="app" style="display:none">
+  <h2>🔑 baxigpt 卡密后台</h2>
+  <div class="stats" id="stats"></div>
+  <div class="tabs"><div class="tab on" id="tab-c" onclick="tab('c')">卡密</div><div class="tab" id="tab-o" onclick="tab('o')">订单</div></div>
+  <div id="pane-c">
+    <div class="card"><h3 style="margin-top:0">生成卡密</h3>
+      <div class="row">
+        <div><label>通道</label><select id="g-channel" style="width:170px"><option value="pix">PIX 巴西 (BX-)</option><option value="pl">PL 大厅 (PL-)</option><option value="eu">EU 代开 BLIK (EU-)</option></select></div>
+        <div><label>数量</label><input id="g-count" type="number" value="10" style="width:90px"></div>
+        <div><label>每张次数</label><input id="g-quota" type="number" value="1" style="width:90px"></div>
+        <div style="flex:1"><label>备注</label><input id="g-note" placeholder="可选" style="width:100%"></div>
+        <button class="btn" onclick="gen()">生成</button>
+      </div>
+      <div class="gen-out" id="gen-out" style="display:none"></div>
+      <div id="gen-actions" style="display:none;margin-top:8px"><button class="btn sm gray" onclick="copyGen()">复制</button> <button class="btn sm gray" onclick="dlGen()">下载txt</button></div>
+    </div>
+    <div class="card"><div class="row" style="margin-bottom:10px"><input id="kw" placeholder="搜卡密/备注" style="flex:1" onkeydown="if(event.key=='Enter')loadCodes()"><button class="btn gray" onclick="loadCodes()">搜索</button></div>
+      <table><thead><tr><th>卡密</th><th>配额</th><th>已用</th><th>剩余</th><th>状态</th><th>备注</th><th>创建</th><th></th></tr></thead><tbody id="codes"></tbody></table>
+    </div>
+  </div>
+  <div id="pane-o" style="display:none">
+    <div class="row" style="margin-bottom:10px"><button class="btn" onclick="loadOrders();loadStats()">🔄 刷新订单</button><label style="margin:0 0 0 6px"><input type="checkbox" id="onlyfail" onchange="loadOrders()"> 只看失败</label><span id="o-time" style="font-size:12px;color:var(--sub);margin-left:8px"></span></div>
+    <div class="card"><table><thead><tr><th>#</th><th>卡密</th><th>账号</th><th>订单</th><th>状态</th><th>创建</th><th>付款</th><th>失败原因</th></tr></thead><tbody id="orders"></tbody></table></div>
+  </div>
+</div>
+<script>
+var GEN=[];
+function api(p,b){return fetch(p,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b||{})}).then(r=>r.json());}
+function login(){api('/api/admin/login',{password:document.getElementById('pw').value}).then(d=>{if(d.ok){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';boot();}else document.getElementById('lerr').innerText=d.msg||'失败';}).catch(()=>document.getElementById('lerr').innerText='网络错误');}
+function tab(t){document.getElementById('tab-c').className='tab'+(t=='c'?' on':'');document.getElementById('tab-o').className='tab'+(t=='o'?' on':'');document.getElementById('pane-c').style.display=t=='c'?'block':'none';document.getElementById('pane-o').style.display=t=='o'?'block':'none';if(t=='o')loadOrders();}
+function boot(){loadStats();loadCodes();}
+function loadStats(){api('/api/admin/stats').then(d=>{if(!d.ok)return;var c=d.codes||{},o={};(d.orders||[]).forEach(x=>o[x.status]=x.c);
+  document.getElementById('stats').innerHTML=
+   '<div class="stat"><div class="n">'+(c.c||0)+'</div><div class="l">卡密总数</div></div>'+
+   '<div class="stat"><div class="n">'+(c.uq||0)+' / '+(c.tq||0)+'</div><div class="l">已用 / 总配额</div></div>'+
+   '<div class="stat"><div class="n">'+(o.paid||0)+'</div><div class="l">已开通</div></div>'+
+   '<div class="stat"><div class="n">'+(o.processing||0)+'</div><div class="l">处理中</div></div>';});}
+function loadCodes(){api('/api/admin/codes',{kw:document.getElementById('kw').value}).then(d=>{if(!d.ok)return;
+  document.getElementById('codes').innerHTML=(d.rows||[]).map(r=>{var rem=r.total_quota-r.used_quota;
+   return '<tr><td class="mono">'+r.code+'</td><td>'+r.total_quota+'</td><td>'+r.used_quota+'</td><td>'+rem+'</td>'+
+   '<td><span class="tag t-'+r.status+'">'+r.status+'</span></td><td>'+(r.note||'')+'</td><td>'+r.created_at.slice(0,16)+'</td>'+
+   '<td>'+(r.status=='active'?'<button class="btn sm gray" onclick="act(\''+r.code+'\',\'disable\')">停用</button>':'<button class="btn sm gray" onclick="act(\''+r.code+'\',\'enable\')">启用</button>')+
+   ' <button class="btn sm red" onclick="act(\''+r.code+'\',\'delete\')">删</button></td></tr>';}).join('');});}
+function loadOrders(){api('/api/admin/orders').then(d=>{if(!d.ok)return;var of=document.getElementById('onlyfail').checked;
+  var rows=(d.rows||[]).filter(r=>!of||r.status=='failed');
+  document.getElementById('orders').innerHTML=rows.map(r=>'<tr><td>'+(+r.id)+'</td><td class="mono">'+esc(r.code||'')+'</td><td>'+esc(r.email||'—')+'</td><td class="mono">'+esc(r.display_id||r.pix_order_id||'—')+'</td><td><span class="tag t-'+esc(r.status)+'">'+esc(r.status)+'</span></td><td>'+esc((r.created_at||'').slice(0,16))+'</td><td>'+esc((r.paid_at||'').slice(0,16)||'—')+'</td><td style="color:#fca5a5;max-width:280px">'+esc(r.error||'')+'</td></tr>').join('');
+  var t=document.getElementById('o-time');if(t)t.innerText='已更新 '+new Date().toLocaleTimeString();});}
+function act(code,a){if(a=='delete'&&!confirm('删除 '+code+'?'))return;api('/api/admin/code-action',{code:code,action:a}).then(()=>{loadCodes();loadStats();});}
+function gen(){api('/api/admin/gen',{count:document.getElementById('g-count').value,quota:document.getElementById('g-quota').value,note:document.getElementById('g-note').value,channel:document.getElementById('g-channel').value}).then(d=>{if(!d.ok){alert(d.msg||'失败');return;}GEN=d.codes;document.getElementById('gen-out').style.display='block';document.getElementById('gen-out').innerText=d.codes.join('\n');document.getElementById('gen-actions').style.display='block';loadCodes();loadStats();});}
+function copyGen(){navigator.clipboard.writeText(GEN.join('\n'));}
+function dlGen(){var b=new Blob([GEN.join('\n')],{type:'text/plain'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='baxi_codes.txt';a.click();}
+// 自动尝试(已登录 cookie)
+api('/api/admin/stats').then(d=>{if(d.ok){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';boot();}});
+</script></body></html>

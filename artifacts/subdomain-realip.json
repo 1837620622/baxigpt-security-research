@@ -1,0 +1,920 @@
+[
+  {
+    "host": "baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "www.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "internal.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "backend.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "api.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "dev.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "test.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "staging.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "admin.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "flag.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "demo.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "beta.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/healthz",
+    "status": 200,
+    "snippet": "{\"ok\":true}"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/openapi.json",
+    "status": 200,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"ge"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/docs",
+    "status": 200,
+    "snippet": "     <!DOCTYPE html>     <html>     <head>     <meta name=\"viewport\" content=\"width=device-width, in"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/bx-admin-9f3c7a2e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=\"zh-CN\"><head> <meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width="
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/apiref-8d3f9a2c7e1b",
+    "status": 200,
+    "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8> <meta name=viewport content=\"width=device-wi"
+  },
+  {
+    "host": "debug.baxigpt.com",
+    "path": "/api/admin/stats",
+    "status": 405,
+    "snippet": "{\"detail\":\"Method Not Allowed\"}"
+  }
+]

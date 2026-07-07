@@ -1,0 +1,402 @@
+{
+  "total": 36,
+  "count_500": 18,
+  "leaks": [],
+  "interesting": [
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": []
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": {}
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": null
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": "EU-HFNDFHD4",
+        "admin": true
+      },
+      "status": 200,
+      "body": "{\"ok\":true,\"remaining\":0,\"total\":1,\"used\":1,\"status_code\":\"active\",\"orders\":[{\"email\":\"67_bashes_crawl@icloud.com\",\"display_id\":null,\"status\":\"paid\",\"created_at\":\"2026-07-07 10:56\",\"paid_at\":\"2026-07-07 10:57\",\"error\":\"\"}]}"
+    },
+    {
+      "path": "/api/submit",
+      "payload": {
+        "code": "EU-X",
+        "at": []
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"没识别到有效的 access token(可直接粘 token,或整段 chatgpt.com/api/auth/session 的 JSON)\"}"
+    },
+    {
+      "path": "/api/code-info",
+      "payload": {
+        "code": 0
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": {
+          "$gt": ""
+        }
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": true
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": []
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"缺少 order_id 或 at\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": "68a850e968a850e968a850e9"
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    },
+    {
+      "path": "/api/query",
+      "raw": "{\"code\": \"EU-HFNDFHD4\"\n,\"x\":1}",
+      "status": 200,
+      "body": "{\"ok\":true,\"remaining\":0,\"total\":1,\"used\":1,\"status_code\":\"active\",\"orders\":[{\"email\":\"67_bashes_crawl@icloud.com\",\"display_id\":null,\"status\":\"paid\",\"created_at\":\"2026-07-07 10:56\",\"paid_at\":\"2026-07-07 10:57\",\"error\":\"\"}]}"
+    },
+    {
+      "path": "/api/submit",
+      "raw": "{\"code\":\"EU-X\",\"at\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"没识别到有效的 access token(可直接粘 token,或整段 chatgpt.com/api/auth/session 的 JSON)\"}"
+    }
+  ],
+  "all": [
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": {
+          "$gt": ""
+        }
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": {
+          "$ne": null
+        }
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": true
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": 12345
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": []
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": {}
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": null
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": "EU-HFNDFHD4",
+        "admin": true
+      },
+      "status": 200,
+      "body": "{\"ok\":true,\"remaining\":0,\"total\":1,\"used\":1,\"status_code\":\"active\",\"orders\":[{\"email\":\"67_bashes_crawl@icloud.com\",\"display_id\":null,\"status\":\"paid\",\"created_at\":\"2026-07-07 10:56\",\"paid_at\":\"2026-07-07 10:57\",\"error\":\"\"}]}"
+    },
+    {
+      "path": "/api/query",
+      "payload": {
+        "code": [
+          "EU-HFNDFHD4"
+        ]
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/submit",
+      "payload": {
+        "code": "EU-X",
+        "at": {
+          "$gt": ""
+        }
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/submit",
+      "payload": {
+        "code": "EU-X",
+        "at": true
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/submit",
+      "payload": {
+        "code": "EU-X",
+        "at": []
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"没识别到有效的 access token(可直接粘 token,或整段 chatgpt.com/api/auth/session 的 JSON)\"}"
+    },
+    {
+      "path": "/api/submit",
+      "payload": {
+        "code": "EU-X",
+        "at": 12345
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/submit",
+      "payload": {
+        "code": {
+          "$gt": ""
+        },
+        "at": "eyJhbGciOiJIUzI1NiJ9.e30.sig"
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/code-info",
+      "payload": {
+        "code": {
+          "$regex": "^EU"
+        }
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/code-info",
+      "payload": {
+        "code": true
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/code-info",
+      "payload": {
+        "code": 0
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    {
+      "path": "/api/admin/login",
+      "payload": {
+        "password": {
+          "$gt": ""
+        }
+      },
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "path": "/api/admin/login",
+      "payload": {
+        "password": true
+      },
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "path": "/api/admin/login",
+      "payload": {
+        "password": []
+      },
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "path": "/api/admin/login",
+      "payload": {
+        "password": null
+      },
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "path": "/api/admin/login",
+      "payload": {
+        "password": 1
+      },
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "path": "/api/admin/login",
+      "payload": {
+        "password": "x",
+        "ok": true
+      },
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": {
+          "$gt": ""
+        }
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": true
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": []
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"缺少 order_id 或 at\"}"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "at": {
+          "$gt": ""
+        }
+      },
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/status",
+      "payload": {
+        "order_id": "68a850e968a850e968a850e9"
+      },
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    },
+    {
+      "path": "/api/query",
+      "raw": "{\"code\":\"EU-HFNDFHD4\",}",
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/query",
+      "raw": "{\"code\": \"EU-HFNDFHD4\"\n,\"x\":1}",
+      "status": 200,
+      "body": "{\"ok\":true,\"remaining\":0,\"total\":1,\"used\":1,\"status_code\":\"active\",\"orders\":[{\"email\":\"67_bashes_crawl@icloud.com\",\"display_id\":null,\"status\":\"paid\",\"created_at\":\"2026-07-07 10:56\",\"paid_at\":\"2026-07-07 10:57\",\"error\":\"\"}]}"
+    },
+    {
+      "path": "/api/query",
+      "raw": "{\"code\": \"\\u0000EU\"}",
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/admin/login",
+      "raw": "{\"password\":\"test\",}",
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/submit",
+      "raw": "{\"code\":\"EU-X\",\"at\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"没识别到有效的 access token(可直接粘 token,或整段 chatgpt.com/api/auth/session 的 JSON)\"}"
+    },
+    {
+      "path": "/api/query",
+      "raw": "[{\"code\":\"EU-HFNDFHD4\"},{\"code\":\"EU-HFNDFHD4\"},{\"code\":\"EU-HFNDFHD4\"},{\"code\":\"E",
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/admin/login",
+      "raw": "password=test",
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "path": "/api/admin/login",
+      "raw": "{\"password\":\"test\"}\u0000garbage",
+      "status": 500,
+      "body": "Internal Server Error"
+    }
+  ]
+}

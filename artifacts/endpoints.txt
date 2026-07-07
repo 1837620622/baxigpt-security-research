@@ -1,0 +1,15 @@
+GET    /apiref-8d3f9a2c7e1b           #  Api Doc Page
+POST   /api/code-info                 # Api Code Info
+POST   /api/submit                    # Api Submit
+POST   /api/status                    # Api Status
+POST   /api/query                     # Api Query
+GET    /healthz                       # Healthz
+GET    /bx-admin-9f3c7a2e1b/          # Admin Page
+GET    /bx-admin-9f3c7a2e1b           # Admin Page
+POST   /api/admin/login               # Admin Login
+POST   /api/admin/gen                 # Admin Gen
+POST   /api/admin/stats               # Admin Stats
+POST   /api/admin/codes               # Admin Codes
+POST   /api/admin/orders              # Admin Orders
+POST   /api/admin/code-action         # Admin Code Action
+GET    /                              # Home

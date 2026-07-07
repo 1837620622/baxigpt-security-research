@@ -1,0 +1,1269 @@
+{
+  "ts": "2026-07-07 20:44:44",
+  "dns": {
+    "apex": "23.148.180.26",
+    "fake_ip_still": false,
+    "resolved": {
+      "www.baxigpt.com": "23.148.180.26"
+    },
+    "nxdomain": [
+      "api.baxigpt.com",
+      "dev.baxigpt.com",
+      "test.baxigpt.com",
+      "staging.baxigpt.com",
+      "admin.baxigpt.com",
+      "beta.baxigpt.com",
+      "demo.baxigpt.com",
+      "flag.baxigpt.com",
+      "mail.baxigpt.com",
+      "smtp.baxigpt.com",
+      "backend.baxigpt.com",
+      "internal.baxigpt.com",
+      "vpn.baxigpt.com",
+      "git.baxigpt.com",
+      "jenkins.baxigpt.com",
+      "grafana.baxigpt.com",
+      "metrics.baxigpt.com",
+      "status.baxigpt.com",
+      "monitor.baxigpt.com",
+      "app.baxigpt.com",
+      "portal.baxigpt.com",
+      "cdn.baxigpt.com",
+      "static.baxigpt.com",
+      "pix.baxigpt.com",
+      "eu.baxigpt.com",
+      "bx.baxigpt.com",
+      "pl.baxigpt.com",
+      "openapi.baxigpt.com",
+      "swagger.baxigpt.com",
+      "docs.baxigpt.com",
+      "debug.baxigpt.com",
+      "secret.baxigpt.com",
+      "auth.baxigpt.com",
+      "login.baxigpt.com",
+      "pay.baxigpt.com",
+      "order.baxigpt.com",
+      "card.baxigpt.com",
+      "codes.baxigpt.com",
+      "baxi.baxigpt.com",
+      "chirou.baxigpt.com",
+      "gpt.baxigpt.com",
+      "plus.baxigpt.com",
+      "prod.baxigpt.com",
+      "sandbox.baxigpt.com",
+      "origin.baxigpt.com",
+      "direct.baxigpt.com",
+      "ctf.baxigpt.com",
+      "target.baxigpt.com",
+      "panel.baxigpt.com",
+      "manage.baxigpt.com"
+    ]
+  },
+  "paths": [
+    {
+      "path": "/",
+      "status": 200,
+      "snippet": "<!doctype html><html lang=\"zh-CN\"><head>\n<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial"
+    },
+    {
+      "path": "/healthz",
+      "status": 200,
+      "snippet": "{\"ok\":true}"
+    },
+    {
+      "path": "/openapi.json",
+      "status": 200,
+      "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"get\":{\"summary\":\" Api "
+    },
+    {
+      "path": "/docs",
+      "status": 200,
+      "snippet": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  "
+    },
+    {
+      "path": "/redoc",
+      "status": 200,
+      "snippet": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n    <title>baxigpt - ReDoc</title>\n    <!-- needed for adaptive design -->\n  "
+    },
+    {
+      "path": "/bx-admin-9f3c7a2e1b",
+      "status": 200,
+      "snippet": "<!doctype html><html lang=\"zh-CN\"><head>\n<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial"
+    },
+    {
+      "path": "/apiref-8d3f9a2c7e1b",
+      "status": 200,
+      "snippet": "<!doctype html><html lang=zh><head><meta charset=utf-8>\n<meta name=viewport content=\"width=device-width,initial-scale=1\""
+    },
+    {
+      "path": "/api/admin/stats",
+      "status": 405,
+      "snippet": "{\"detail\":\"Method Not Allowed\"}"
+    }
+  ],
+  "vhost": {
+    "baseline": [
+      0,
+      ""
+    ],
+    "diffs": []
+  },
+  "auth_bypass": {
+    "hit": null,
+    "tests": [
+      {
+        "test": "login_body:empty_json",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:null_pw",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:array_pw",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:obj_pw",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:bool_true",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:int_1",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:pwd_field",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:pass_field",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:duplicate",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:extra_admin",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_body:jwt_alg_none",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:0",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:1",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:2",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:3",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:4",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:5",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:6",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:7",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "login_hdr:8",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "test": "bfla:/api/admin/stats",
+        "status": 401,
+        "body": "{\"ok\":false}"
+      },
+      {
+        "test": "bfla:/api/admin/gen",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"未登录\"}"
+      },
+      {
+        "test": "bfla:/api/admin/codes",
+        "status": 401,
+        "body": "{\"ok\":false}"
+      },
+      {
+        "test": "bfla:/api/admin/orders",
+        "status": 401,
+        "body": "{\"ok\":false}"
+      },
+      {
+        "test": "bfla:/api/admin/code-action",
+        "status": 401,
+        "body": "{\"ok\":false}"
+      },
+      {
+        "test": "method_get:/api/admin/login",
+        "status": 405,
+        "body": "{\"detail\":\"Method Not Allowed\"}"
+      },
+      {
+        "test": "method_get:/api/admin/stats",
+        "status": 405,
+        "body": "{\"detail\":\"Method Not Allowed\"}"
+      }
+    ]
+  },
+  "sqli": [
+    {
+      "payload": "' OR '1'='1",
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "payload": "admin'--",
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "payload": "' OR 1=1--",
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "payload": "{\"$gt\":\"\"}",
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "payload": "{\"$ne\":null}",
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    {
+      "payload": "password[$ne]=x",
+      "status": 401,
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    }
+  ],
+  "type_confusion": [
+    {
+      "path": "/api/query",
+      "body": {
+        "code": {
+          "$gt": ""
+        }
+      },
+      "status": 500,
+      "snippet": "Internal Server Error"
+    },
+    {
+      "path": "/api/query",
+      "body": {
+        "code": [
+          "EU-TEST"
+        ]
+      },
+      "status": 500,
+      "snippet": "Internal Server Error"
+    },
+    {
+      "path": "/api/code-info",
+      "body": {
+        "code": true
+      },
+      "status": 500,
+      "snippet": "Internal Server Error"
+    },
+    {
+      "path": "/api/submit",
+      "body": {
+        "code": "EU-X",
+        "at": {
+          "$gt": ""
+        }
+      },
+      "status": 500,
+      "snippet": "Internal Server Error"
+    },
+    {
+      "path": "/api/status",
+      "body": {
+        "order_id": {
+          "$gt": ""
+        }
+      },
+      "status": 200,
+      "snippet": "{\"ok\":false,\"msg\":\"查询失败\"}"
+    }
+  ],
+  "brute": {
+    "success": null,
+    "results": [
+      {
+        "i": 0,
+        "password": "",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 1,
+        "password": "admin",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 2,
+        "password": "password",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 3,
+        "password": "123456",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 4,
+        "password": "baxigpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 5,
+        "password": "baxi",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 6,
+        "password": "BaxiGPT",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 7,
+        "password": "baxigpt.com",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 8,
+        "password": "chirou",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 9,
+        "password": "web3chirou",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 10,
+        "password": "oxalin_13",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 11,
+        "password": "oxalin13",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 12,
+        "password": "eu_blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 13,
+        "password": "eu-blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 14,
+        "password": "EU-BLIK",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 15,
+        "password": "bx-admin-9f3c7a2e1b",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 16,
+        "password": "9f3c7a2e1b",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 17,
+        "password": "apiref-8d3f9a2c7e1b",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 18,
+        "password": "8d3f9a2c7e1b",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 19,
+        "password": "baxi_codes",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 20,
+        "password": "baxi_codes.txt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 21,
+        "password": "fastapi",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 22,
+        "password": "uvicorn",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 23,
+        "password": "changeme",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 24,
+        "password": "secret",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 25,
+        "password": "flag",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 26,
+        "password": "ctf",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 27,
+        "password": "ctf2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 28,
+        "password": "CTF2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 29,
+        "password": "靶场",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 30,
+        "password": "baxigpt2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 31,
+        "password": "Baxigpt@2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 32,
+        "password": "chirou_baxi",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 33,
+        "password": "chirou@baxi",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 34,
+        "password": "web3_chirou",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 35,
+        "password": "pix",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 36,
+        "password": "PL-",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 37,
+        "password": "EU-",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 38,
+        "password": "BX-",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 39,
+        "password": "HFNDFHD4",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 40,
+        "password": "eu_hfn",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 41,
+        "password": "blik2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 42,
+        "password": "plus_baxi",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 43,
+        "password": "reg-factory",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 44,
+        "password": "qwer1234",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 45,
+        "password": "1qaz@WSX",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 46,
+        "password": "Admin@123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 47,
+        "password": "admin123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 48,
+        "password": "admin@123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 49,
+        "password": "P@ssw0rd",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 50,
+        "password": "password123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 51,
+        "password": "letmein",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 52,
+        "password": "welcome",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 53,
+        "password": "monkey",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 54,
+        "password": "dragon",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 55,
+        "password": "master",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 56,
+        "password": "23.148.180.26",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 57,
+        "password": "198.18.0.28",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 58,
+        "password": "nginx",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 59,
+        "password": "ubuntu",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 60,
+        "password": "ubuntu24",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 61,
+        "password": "compare_digest",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 62,
+        "password": "session_secret",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 63,
+        "password": "SESSION_SECRET",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 64,
+        "password": "SECRET_KEY",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 65,
+        "password": "tiantianGPU",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 66,
+        "password": "ryugadev",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 67,
+        "password": "AUTO-REGGPT",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 68,
+        "password": "蔚莱云",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 69,
+        "password": "未来云",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 70,
+        "password": "baxi2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 71,
+        "password": "baxi_2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 72,
+        "password": "baxi-2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 73,
+        "password": "baxi123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 74,
+        "password": "baxi_123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 75,
+        "password": "baxi-123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 76,
+        "password": "baxi_gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 77,
+        "password": "baxi-gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 78,
+        "password": "baxiplus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 79,
+        "password": "baxi_plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 80,
+        "password": "baxi-plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 81,
+        "password": "baxiblik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 82,
+        "password": "baxi_blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 83,
+        "password": "baxi-blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 84,
+        "password": "chirou2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 85,
+        "password": "chirou_2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 86,
+        "password": "chirou-2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 87,
+        "password": "chirou123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 88,
+        "password": "chirou_123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 89,
+        "password": "chirou-123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 90,
+        "password": "chirougpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 91,
+        "password": "chirou_gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 92,
+        "password": "chirou-gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 93,
+        "password": "chirouplus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 94,
+        "password": "chirou_plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 95,
+        "password": "chirou-plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 96,
+        "password": "chiroublik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 97,
+        "password": "chirou_blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 98,
+        "password": "chirou-blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 99,
+        "password": "eu2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 100,
+        "password": "eu_2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 101,
+        "password": "eu-2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 102,
+        "password": "eu123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 103,
+        "password": "eu_123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 104,
+        "password": "eu-123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 105,
+        "password": "eugpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 106,
+        "password": "eu_gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 107,
+        "password": "eu-gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 108,
+        "password": "euplus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 109,
+        "password": "eu_plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 110,
+        "password": "eu-plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 111,
+        "password": "eublik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 112,
+        "password": "ctf_2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 113,
+        "password": "ctf-2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 114,
+        "password": "ctf123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 115,
+        "password": "ctf_123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 116,
+        "password": "ctf-123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 117,
+        "password": "ctfgpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 118,
+        "password": "ctf_gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 119,
+        "password": "ctf-gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 120,
+        "password": "ctfplus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 121,
+        "password": "ctf_plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 122,
+        "password": "ctf-plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 123,
+        "password": "ctfblik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 124,
+        "password": "ctf_blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 125,
+        "password": "ctf-blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 126,
+        "password": "admin2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 127,
+        "password": "admin_2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 128,
+        "password": "admin-2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 129,
+        "password": "admin_123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 130,
+        "password": "admin-123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 131,
+        "password": "admingpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 132,
+        "password": "admin_gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 133,
+        "password": "admin-gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 134,
+        "password": "adminplus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 135,
+        "password": "admin_plus",
+        "status": 503,
+        "body": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</h"
+      },
+      {
+        "i": 136,
+        "password": "admin-plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 137,
+        "password": "adminblik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 138,
+        "password": "admin_blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 139,
+        "password": "admin-blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 140,
+        "password": "flag2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 141,
+        "password": "flag_2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 142,
+        "password": "flag-2026",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 143,
+        "password": "flag123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 144,
+        "password": "flag_123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 145,
+        "password": "flag-123",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 146,
+        "password": "flaggpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 147,
+        "password": "flag_gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 148,
+        "password": "flag-gpt",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 149,
+        "password": "flagplus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 150,
+        "password": "flag_plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 151,
+        "password": "flag-plus",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 152,
+        "password": "flagblik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 153,
+        "password": "flag_blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      },
+      {
+        "i": 154,
+        "password": "flag-blik",
+        "status": 401,
+        "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+      }
+    ]
+  }
+}

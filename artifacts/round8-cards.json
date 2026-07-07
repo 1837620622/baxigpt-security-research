@@ -1,0 +1,29 @@
+{
+  "tested": 384,
+  "hits": [
+    {
+      "code": "EU-HFNDFHD4",
+      "code_info": {
+        "ok": false,
+        "msg": "卡密配额已用完"
+      },
+      "query": {
+        "ok": true,
+        "remaining": 0,
+        "total": 1,
+        "used": 1,
+        "status_code": "active",
+        "orders": [
+          {
+            "email": "67_bashes_crawl@icloud.com",
+            "display_id": null,
+            "status": "paid",
+            "created_at": "2026-07-07 10:56",
+            "paid_at": "2026-07-07 10:57",
+            "error": ""
+          }
+        ]
+      }
+    }
+  ]
+}

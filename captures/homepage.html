@@ -1,0 +1,164 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPT Plus 卡密开通</title>
+<style>
+:root{--bg:#f6f8fa;--card:#fff;--ink:#1f2937;--sub:#6b7280;--line:#e5e7eb;--gp:#10a37f;--gp2:#0d8c6d}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:560px;margin:0 auto;padding:18px}
+.top{display:flex;align-items:center;gap:8px;padding:6px 2px 18px}
+.logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#0d8c6d,#10a37f 45%,#34d399 75%,#22d3ee);display:flex;align-items:center;justify-content:center;box-shadow:0 5px 14px rgba(16,163,127,.38);position:relative}
+.brand{font-weight:700;font-size:16px}.spacer{flex:1}
+.lang{font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:#fff;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);margin-bottom:14px}
+h1{font-size:22px;margin:2px 0 6px}.lead{color:var(--sub);font-size:14px;margin:0 0 16px;line-height:1.6}
+label{font-size:13px;color:var(--sub);display:block;margin:14px 0 6px}
+input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;font-family:ui-monospace,Menlo,monospace;background:#fbfdfc}
+input{letter-spacing:1px;text-transform:uppercase}
+textarea{min-height:104px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--gp);box-shadow:0 0 0 3px rgba(16,163,127,.12)}
+.hint{font-size:12px;margin:6px 0 0;min-height:16px}.hint.ok{color:var(--gp)}.hint.bad{color:#b91c1c}
+.btn{width:100%;border:0;border-radius:12px;padding:14px;font-size:16px;font-weight:700;color:#fff;background:var(--gp);cursor:pointer;margin-top:16px}
+.btn:hover{background:var(--gp2)}.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--gp);border:1px solid var(--gp)}
+details{margin-top:12px;font-size:13px;color:var(--sub)}summary{cursor:pointer;color:var(--gp)}
+details ol{margin:8px 0 0;padding-left:18px;line-height:1.8}
+.notes{margin-top:14px;font-size:12px;color:var(--sub);line-height:1.9}.notes b{color:var(--ink)}
+.chip{display:inline-block;font-size:12px;color:var(--gp);background:rgba(16,163,127,.1);border-radius:999px;padding:4px 10px;margin-bottom:12px}
+.steps{display:flex;align-items:center;margin:6px 0 18px}
+.step{flex:1;text-align:center;font-size:12px;color:var(--sub);position:relative}
+.dot{width:26px;height:26px;border-radius:50%;background:#e5e7eb;color:#9ca3af;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:13px}
+.step.on .dot{background:var(--gp);color:#fff}.step.on{color:var(--ink);font-weight:600}
+.step.done .dot{background:#34d399;color:#fff}
+.bar{position:absolute;top:13px;left:50%;width:100%;height:2px;background:#e5e7eb;z-index:-1}.step:last-child .bar{display:none}
+.kv{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px dashed var(--line)}.kv b{font-weight:600}
+.badge{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px}
+.b-proc{background:#fff7ed;color:#c2410c}.b-ok{background:#ecfdf5;color:#047857}.b-exp{background:#fef2f2;color:#b91c1c}
+.center{text-align:center;padding:8px 0}.big{font-size:46px;margin:8px 0}
+.spin{width:34px;height:34px;border:3px solid #e5e7eb;border-top-color:var(--gp);border-radius:50%;animation:s 1s linear infinite;margin:14px auto}
+@keyframes s{to{transform:rotate(360deg)}}
+.muted{color:var(--sub);font-size:13px;line-height:1.6}
+.err{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:12px;padding:12px;font-size:13px;margin-top:12px;display:none}
+.foot{text-align:center;color:#9ca3af;font-size:12px;padding:8px 0 24px}
+</style></head><body>
+<div class="wrap">
+  <div class="top"><div class="logo"><svg width="21" height="21" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c.45 4.85 2.9 7.3 7.75 7.75C14.9 10.2 12.45 12.65 12 17.5c-.45-4.85-2.9-7.3-7.75-7.75C9.1 9.3 11.55 6.85 12 2z"/><path d="M18.8 13.4c.18 2.1 1.25 3.17 3.35 3.35-2.1.18-3.17 1.25-3.35 3.35-.18-2.1-1.25-3.17-3.35-3.35 2.1-.18 3.17-1.25 3.35-3.35z" opacity=".9"/></svg></div><div class="brand">ChatGPT Plus 卡密开通</div><div class="spacer"></div><div class="lang" id="navq" onclick="showQuery()">查询订单</div><div class="lang" onclick="toggleLang()" id="lang" style="margin-left:8px">EN</div></div>
+
+  <div class="card" id="view-submit">
+    <span class="chip" id="c-chip">🔑 凭卡密自助开通</span>
+    <h1 id="t-title">卡密开通 ChatGPT Plus</h1>
+    <p class="lead" id="t-lead">先验证卡密,再粘贴账号的 access token,自动为你开通 Plus 首月。</p>
+    <label id="t-clabel">第一步 · 卡密</label>
+    <div style="display:flex;gap:8px"><input id="code" placeholder="BX- / PL- / EU-" autocomplete="off" style="flex:1"><button class="btn" id="vbtn" onclick="verifyCode()" style="width:auto;margin-top:0;padding:0 18px">验证</button></div>
+    <div class="hint" id="chint"></div>
+    <div id="at-section" style="display:none">
+      <label id="t-label">第二步 · access token</label>
+      <textarea id="at" placeholder="直接粘 access token(eyJ...),或整段 chatgpt.com/api/auth/session 的 JSON" oninput="onAt()"></textarea>
+      <button class="btn" id="btn" onclick="submit()" disabled>开通 Plus</button>
+      <details><summary id="t-how">如何获取 access token?</summary>
+        <ol id="t-steps"><li>登录 chatgpt.com</li><li>浏览器打开 chatgpt.com/api/auth/session</li><li>复制 accessToken 字段(eyJ 开头),或整段 JSON 直接粘进来</li></ol>
+      </details>
+    </div>
+    <div class="err" id="err"></div>
+    <div class="notes" id="t-notes">
+      <div>· 仅支持<b>带免费试用资格</b>的账号(没开过 Plus 的新号)</div>
+      <div>· 提交后自动处理,约 <b>1–10 分钟</b></div>
+      <div>· 我们<b>不保存</b>你的 token,仅用于本次开通</div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="card" id="view-status" style="display:none">
+    <div class="steps" id="stepper">
+      <div class="step done" id="s1"><div class="dot">✓</div>已提交<div class="bar"></div></div>
+      <div class="step on" id="s2"><div class="dot">2</div>处理中<div class="bar"></div></div>
+      <div class="step" id="s3"><div class="dot">3</div>已开通</div>
+    </div>
+    <div id="st-body"></div>
+    <button class="btn ghost" id="st-refresh" onclick="refresh()" style="margin-top:14px">刷新状态</button>
+    <button class="btn" id="st-back" onclick="reset()" style="display:none">再开通一个</button>
+  </div>
+
+  <div class="card" id="view-query" style="display:none">
+    <h1 id="q-title" style="font-size:20px">查询卡密订单</h1>
+    <p class="lead" id="q-lead">输入卡密,查看用它开通的订单状态。</p>
+    <label id="q-clabel">卡密</label>
+    <div style="display:flex;gap:8px"><input id="qcode" placeholder="BX- / PL- / EU-" autocomplete="off" style="flex:1"><button class="btn" onclick="doQuery()" style="width:auto;margin-top:0;padding:0 18px" id="qbtn">查询</button></div>
+    <div id="q-result" style="margin-top:14px"></div>
+    <button class="btn ghost" onclick="showSubmit()" style="margin-top:14px" id="q-back">返回开通</button>
+  </div>
+
+  <div class="foot">卡密自助开通 · 用户自带号 · 安全不留存</div>
+</div>
+<script>
+var LANG='zh', OID='', AT='', CODE='', codeOK=false, timer=null, ctmr=null;
+var T={zh:{title:'卡密开通 ChatGPT Plus',lead:'先验证卡密,再粘贴账号的 access token,自动开通 Plus 首月。',clabel:'第一步 · 卡密',label:'第二步 · access token',btn:'开通 Plus',how:'如何获取 access token?',chip:'凭卡密自助开通',refresh:'刷新状态',back:'再开通一个',proc:'处理中',ok:'已开通',exp:'已过期',fail:'出码失败',
+  procTip:'正在为你的账号开通,请稍候…(上游自动付款中)',okTip:'ChatGPT Plus 已开通!',expTip:'订单已过期,卡密已退回,请重试',failTip:'出码失败,卡密已退回,请重新提交开通',go:'去 chatgpt.com 使用',n1:'仅支持带免费试用资格的账号(没开过 Plus 的新号)',n2:'提交后自动处理,约 1–10 分钟',n3:'我们不保存你的 token,仅用于本次开通',syncNote:'开通成功后,OpenAI 同步状态通常还需 1–5 分钟。若你马上刷新 chatgpt.com 还没看到 Plus,请等几分钟再刷新',sub:'提交开通中…',email:'账号',order:'订单号',left:'订单剩余',cremain:'✓ 卡密有效,剩余 ',ctimes:' 次'},
+  en:{title:'Redeem ChatGPT Plus',lead:'Verify your card code first, then paste your access token.',clabel:'Step 1 · Card code',label:'Step 2 · access token',btn:'Activate Plus',how:'How to get the access token?',chip:'Self-serve with a card code',refresh:'Refresh',back:'Activate another',proc:'Processing',ok:'Activated',exp:'Expired',fail:'Code failed',
+  procTip:'Activating your account, please wait… (upstream is paying)',okTip:'ChatGPT Plus is active!',expTip:'Order expired, code refunded, please retry',failTip:'PIX code generation failed, code refunded, please resubmit',go:'Open chatgpt.com',n1:'Only accounts with a free trial eligibility (never subscribed)',n2:'Auto-processed, about 1–10 min',n3:'We never store your token, used only for this activation',syncNote:'After it shows activated, OpenAI usually needs 1–5 more minutes to sync. If Plus is not visible right after you refresh chatgpt.com, please wait a few minutes and refresh again',sub:'Submitting…',email:'Account',order:'Order',left:'Expires in',cremain:'✓ Valid, ',ctimes:' use(s) left'}};
+function tr(){var t=T[LANG];
+  document.getElementById('t-title').innerText=t.title;document.getElementById('t-lead').innerText=t.lead;
+  document.getElementById('t-clabel').innerText=t.clabel;document.getElementById('t-label').innerText=t.label;
+  document.getElementById('btn').innerText=t.btn;document.getElementById('t-how').innerText=t.how;
+  document.getElementById('c-chip').innerText='🔑 '+t.chip;
+  document.getElementById('st-refresh').innerText=t.refresh;document.getElementById('st-back').innerText=t.back;
+  document.getElementById('lang').innerText=LANG=='zh'?'EN':'中';
+  document.getElementById('s1').childNodes[1].nodeValue=LANG=='zh'?'已提交':'Submitted';
+  document.getElementById('s2').childNodes[1].nodeValue=t.proc;document.getElementById('s3').childNodes[1].nodeValue=t.ok;
+  var ns=document.getElementById('t-notes');ns.children[0].innerHTML='· <b>'+t.n1+'</b>';ns.children[1].innerHTML='· '+t.n2;ns.children[2].innerHTML='· '+t.n3;ns.children[3].innerHTML='· '+t.syncNote;}
+function toggleLang(){LANG=LANG=='zh'?'en':'zh';tr();}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+function showErr(m){var e=document.getElementById('err');e.innerText=m;e.style.display='block';}
+function setBtn(){document.getElementById('btn').disabled=!(codeOK && document.getElementById('at').value.trim().length>=30);}
+document.addEventListener('input',function(e){if(e.target&&e.target.id=='at')setBtn();});
+function onAt(){setBtn();}
+function verifyCode(){var v=document.getElementById('code').value.trim().toUpperCase();CODE=v;
+  var h=document.getElementById('chint');h.className='hint';
+  if(v.length<5){h.className='hint bad';h.innerText=LANG=='zh'?'请输入卡密':'Enter a code';return;}
+  var vb=document.getElementById('vbtn');vb.disabled=true;
+  fetch('/api/code-info',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:v})}).then(r=>r.json()).then(d=>{vb.disabled=false;
+    if(d.ok){codeOK=true;h.className='hint ok';h.innerText=T[LANG].cremain+d.remaining+T[LANG].ctimes;
+      document.getElementById('at-section').style.display='block';document.getElementById('code').disabled=true;vb.style.display='none';document.getElementById('at').focus();}
+    else{codeOK=false;h.className='hint bad';h.innerText='✗ '+d.msg;document.getElementById('at-section').style.display='none';}setBtn();}).catch(()=>{vb.disabled=false;h.className='hint bad';h.innerText=LANG=='zh'?'网络错误':'Network error';});}
+function showQuery(){clearInterval(timer);document.getElementById('view-submit').style.display='none';document.getElementById('view-status').style.display='none';document.getElementById('view-query').style.display='block';}
+function showSubmit(){document.getElementById('view-query').style.display='none';document.getElementById('view-status').style.display='none';document.getElementById('view-submit').style.display='block';}
+function doQuery(){var v=document.getElementById('qcode').value.trim().toUpperCase();var box=document.getElementById('q-result');if(v.length<5){box.innerHTML='<div class="hint bad">请输入卡密</div>';return;}
+  document.getElementById('qbtn').disabled=true;
+  fetch('/api/query',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:v})}).then(r=>r.json()).then(d=>{document.getElementById('qbtn').disabled=false;
+    if(!d.ok){box.innerHTML='<div class="hint bad">✗ '+d.msg+'</div>';return;}
+    var sm={paid:'已开通',processing:'处理中',expired:'已过期',refunded:'已退回'},smc={paid:'b-ok',processing:'b-proc',expired:'b-exp',refunded:'b-exp'};
+    var h='<div class="kv"><span>卡密配额</span><b>已用 '+d.used+' / 共 '+d.total+'(剩 '+d.remaining+')</b></div>';
+    if(!d.orders.length){h+='<div class="muted" style="padding:12px 0">该卡密还没有开通记录</div>';}
+    else{d.orders.forEach(function(o){h+='<div style="border-bottom:1px dashed var(--line);padding:10px 0"><div style="display:flex;justify-content:space-between;align-items:center"><b>'+esc(o.email||"—")+'</b><span class="badge '+(smc[o.status]||"b-proc")+'">'+(sm[o.status]||esc(o.status))+'</span></div><div class="muted" style="font-size:12px">订单 '+esc(o.display_id||"—")+' · '+esc(o.created_at||"")+'</div>'+(o.error?'<div style="color:#b91c1c;font-size:12px;margin-top:4px;line-height:1.5">⚠ '+esc(o.error)+'</div>':'')+'</div>';});}
+    box.innerHTML=h;}).catch(()=>{document.getElementById('qbtn').disabled=false;box.innerHTML='<div class="hint bad">网络错误</div>';});}
+function setStep(s){var s2=document.getElementById('s2'),s3=document.getElementById('s3');
+  if(s=='paid'){s2.className='step done';s2.querySelector('.dot').innerText='✓';s3.className='step done';s3.querySelector('.dot').innerText='✓';}
+  else if(s=='expired'){s2.className='step';s2.querySelector('.dot').innerText='2';}
+  else{s2.className='step on';s2.querySelector('.dot').innerText='2';s3.className='step';}}
+async function submit(){var at=document.getElementById('at').value.trim();var t=T[LANG];
+  document.getElementById('err').style.display='none';if(!codeOK){showErr(LANG=='zh'?'请输入有效卡密':'Enter a valid code');return;}
+  if(at.length<30){showErr(LANG=='zh'?'请粘贴有效的 access token':'Please paste a valid access token');return;}
+  var b=document.getElementById('btn');b.disabled=true;b.innerText=t.sub;AT=at;
+  try{var r=await fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:CODE,at:at})});var d=await r.json();
+    if(!d.ok){showErr(d.msg);b.disabled=false;b.innerText=t.btn;return;}
+    OID=d.order_id;document.getElementById('view-submit').style.display='none';document.getElementById('view-status').style.display='block';
+    render(d);poll();}catch(e){showErr(LANG=='zh'?'网络错误,请重试':'Network error');b.disabled=false;b.innerText=t.btn;}}
+function fmtLeft(exp,now){if(!exp||!now)return'';var s=exp-now;if(s<=0)return'00:00';var m=Math.floor(s/60),ss=s%60;return(m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;}
+function render(d){var t=T[LANG];setStep(d.status);var body=document.getElementById('st-body');
+  var badge=d.status=='paid'?'<span class="badge b-ok">'+t.ok+'</span>':d.status=='expired'?'<span class="badge b-exp">'+t.exp+'</span>':d.status=='failed'?'<span class="badge b-exp">'+t.fail+'</span>':'<span class="badge b-proc">'+t.proc+'</span>';
+  var h='<div class="kv"><span>'+t.email+'</span><b>'+(d.email||'—')+'</b></div><div class="kv"><span>'+t.order+'</span><b>'+(d.display_id||d.order_id||'—')+'</b></div>';
+  if(d.status=='paid'){h+='<div class="center"><div class="big">✅</div><div style="font-size:18px;font-weight:700">'+t.okTip+'</div><div class="muted">'+(d.email||'')+'</div></div><div class="muted" style="background:#fff7ed;color:#c2410c;border-radius:10px;padding:11px 12px;margin:12px 0;font-size:13px;line-height:1.65">⏳ '+t.syncNote+'</div><a href="https://chatgpt.com" target="_blank"><button class="btn" style="margin-top:8px">'+t.go+'</button></a>';
+    clearInterval(timer);document.getElementById('st-refresh').style.display='none';document.getElementById('st-back').style.display='block';}
+  else if(d.status=='expired'){h+='<div class="center"><div class="big">⏰</div><div class="muted">'+t.expTip+'</div></div>';
+    clearInterval(timer);document.getElementById('st-refresh').style.display='none';document.getElementById('st-back').style.display='block';}
+   else if(d.status=='failed'){h+='<div class="center"><div class="big">⚠️</div><div class="muted">'+esc(d.msg||t.failTip)+'</div></div>';
+     clearInterval(timer);document.getElementById('st-refresh').style.display='none';document.getElementById('st-back').style.display='block';}
+  else{h+='<div class="kv"><span>'+t.left+'</span><b id="left">'+fmtLeft(d.expires_at,d.server_now)+'</b></div><div class="spin"></div><div class="center muted">'+t.procTip+'</div>';}
+  body.innerHTML='<div style="text-align:right;margin-bottom:6px">'+badge+'</div>'+h;}
+async function refresh(){if(!OID&&!AT)return;try{var r=await fetch('/api/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(OID?{order_id:OID}:{at:AT})});var d=await r.json();if(d.ok)render(d);}catch(e){}}
+function poll(){clearInterval(timer);timer=setInterval(refresh,5000);}
+function reset(){clearInterval(timer);OID='';AT='';codeOK=false;document.getElementById('at').value='';document.getElementById('code').value='';document.getElementById('code').disabled=false;document.getElementById('chint').innerText='';document.getElementById('chint').className='hint';
+  document.getElementById('at-section').style.display='none';var vb=document.getElementById('vbtn');vb.style.display='inline-block';vb.disabled=false;
+  var b=document.getElementById('btn');b.disabled=true;b.innerText=T[LANG].btn;
+  document.getElementById('view-status').style.display='none';document.getElementById('view-submit').style.display='block';document.getElementById('st-back').style.display='none';document.getElementById('st-refresh').style.display='block';}
+tr();
+</script></body></html>

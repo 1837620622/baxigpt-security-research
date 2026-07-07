@@ -1,0 +1,35 @@
+{
+  "probed_at": "2026-07-07",
+  "hidden_paths_found": [
+    {"path": "/bx-admin-9f3c7a2e1b", "status": 200, "bytes": 9593},
+    {"path": "/bx-admin-9f3c7a2e1b/", "status": 200, "bytes": 9593},
+    {"path": "/apiref-8d3f9a2c7e1b", "status": 200, "bytes": 6395},
+    {"path": "/apiref-8d3f9a2c7e1b/", "status": 200, "bytes": 6395}
+  ],
+  "source_leaks": "none observed (.git/.env/db/requirements.txt all 404/403)",
+  "admin_auth_bypass": "none (cookie/bearer/x-admin-token all 401)",
+  "rate_limit_triggered": {
+    "status": 429,
+    "msg": "错误次数过多,请稍后再试",
+    "trigger": "burst invalid code-info / malformed JSON"
+  },
+  "submit_parse_order": [
+    "empty at -> token error before code check",
+    "valid-format at + invalid code -> 卡密不存在"
+  ],
+  "http_methods": {
+    "/api/*": "POST only",
+    "/healthz": "GET only",
+    "/openapi.json": "GET, HEAD"
+  },
+  "order_id_format": {
+    "example": "68a850e9...",
+    "display_id": "PAY-68A850E9",
+    "hypothesis": "MongoDB ObjectId (24 hex)"
+  },
+  "malformed_input": {
+    "invalid_json": 500,
+    "code_integer": 500,
+    "duplicate_json_keys": 429
+  }
+}

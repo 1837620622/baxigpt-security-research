@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://baxigpt.com/openapi.json",
+    "status": 200,
+    "server": "nginx/1.24.0 (Ubuntu)",
+    "has_baxigpt": true,
+    "has_bx_admin": true,
+    "has_openapi": true,
+    "snippet": "{\"openapi\":\"3.1.0\",\"info\":{\"title\":\"baxigpt\",\"version\":\"0.1.0\"},\"paths\":{\"/apiref-8d3f9a2c7e1b\":{\"get\":{\"summary\":\" Api Doc Page\",\"operationId\":\"_api_doc_page_apiref_8d3f9a2c7e1b_get\",\"responses\":{\"20"
+  },
+  {
+    "url": "https://chirou.ai/",
+    "status": 200,
+    "server": "Nginx",
+    "has_baxigpt": false,
+    "has_bx_admin": false,
+    "has_openapi": false,
+    "snippet": "<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\n    <meta name=\"keywords\" content=\"蔚莱云Ai"
+  },
+  {
+    "url": "https://web3chirou.com/",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

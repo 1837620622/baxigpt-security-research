@@ -1,0 +1,97 @@
+<!doctype html><html lang=zh><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>baxigpt 开通 API</title><style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0b0f17;color:#e5e7eb;max-width:880px;margin:0 auto;padding:24px;line-height:1.6}
+h1{color:#10b981} h2{color:#34d399;border-bottom:1px solid #243142;padding-bottom:6px;margin-top:34px}
+h3{color:#93c5fd;margin-top:24px} code{background:#161e2a;padding:2px 6px;border-radius:5px;color:#fcd34d;font-size:13px}
+pre{background:#0d1320;border:1px solid #243142;border-radius:10px;padding:14px;overflow-x:auto;font-size:13px}
+pre code{background:none;color:#a5e8c6;padding:0}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid #243142;padding:8px 10px;text-align:left} th{background:#161e2a;color:#93c5fd}
+.method{display:inline-block;background:#10b981;color:#04140d;font-weight:700;padding:2px 9px;border-radius:5px;font-size:12px;margin-right:8px}
+.note{background:#161e2a;border-left:3px solid #10b981;padding:10px 14px;border-radius:6px;margin:14px 0;font-size:14px}
+.warn{border-left-color:#f59e0b;color:#fcd34d} small{color:#94a3b8}
+</style></head><body>
+<h1>🔑 baxigpt 开通 API</h1>
+<p>卡密自助开通 ChatGPT Plus(首月免费试用)。给合伙人 / 自有系统对接用。</p>
+<div class=note><b>Base URL</b>:<code>https://baxigpt.com</code><br>
+<b>鉴权</b>:无需 API Key,<b>卡密(code)本身就是凭据</b>,请勿泄露。<br>
+<b>格式</b>:全部 <code>Content-Type: application/json</code>,请求/响应均 JSON。成功 <code>{"ok":true,...}</code>,失败 <code>{"ok":false,"msg":"中文原因"}</code>。<br>
+<b>限流</b>:<code>/api/submit</code> 每IP 2次/秒;其余 <code>/api/*</code> 8次/秒。另对"卡密错误/垃圾请求"有失败惩罚(刷多了临时封IP),正常使用不受影响。</div>
+
+<h2>一、提交开通</h2>
+
+<h3><span class=method>POST</span><code>/api/code-info</code> — 校验卡密余额(可选)</h3>
+<p>请求:</p><pre><code>{ "code": "BX-XXXXXXXX" }</code></pre>
+<p>成功:</p><pre><code>{ "ok": true, "remaining": 8, "total": 10 }</code></pre>
+<p>失败 <code>msg</code>:<code>卡密不存在</code> / <code>卡密已停用</code> / <code>卡密配额已用完</code></p>
+
+<h3><span class=method>POST</span><code>/api/submit</code> — 提交开通(核心)</h3>
+<p>请求:</p><pre><code>{
+  "code": "BX-XXXXXXXX",
+  "at": "eyJhbGciOi..."
+}</code></pre>
+<p><code>at</code> = 账号 access token(<code>eyJ</code> 开头 JWT)。也可整段粘 <code>chatgpt.com/api/auth/session</code> 的 JSON,系统自动提取。长度 ≥30。</p>
+<div class=note class=warn>⚠️ 仅支持<b>有免费试用资格的新号</b>(没开过 Plus)。</div>
+<p>成功(已下单出码,自动付款中):</p><pre><code>{
+  "ok": true,
+  "order_id": "68a850e9...",
+  "display_id": "PAY-68A850E9",
+  "email": "user@example.com",
+  "status": "processing",
+  "expires_at": 1780600000,
+  "server_now": 1780543000
+}</code></pre>
+<p>拿到 <code>order_id</code> 后用「查询」轮询到 <code>paid</code> 或 <code>failed/expired</code>。<b>配额规则</b>:成功下单才扣 1 次;失败/退款自动返还,可换号重试;同 <code>code+at</code> 重复提交复用同单不重复扣。</p>
+<p>失败 <code>msg</code>(以下情况卡密<b>均自动退回</b>):</p>
+<table><tr><th>msg</th><th>含义</th><th>怎么办</th></tr>
+<tr><td>该账号已经是 Plus 了,无需开通 ✅</td><td>本就是 Plus</td><td>换号</td></tr>
+<tr><td>该账号没有免费试用资格…</td><td>号没资格</td><td>换新号</td></tr>
+<tr><td>access token 已失效,请重新登录…</td><td>token 失效</td><td>重取 token</td></tr>
+<tr><td>access token 无效或已过期…</td><td>token 无效</td><td>重取 token</td></tr>
+</table>
+
+<h2>二、查询</h2>
+
+<h3><span class=method>POST</span><code>/api/status</code> — 查单个订单(order_id 或 at)</h3>
+<pre><code>{ "order_id": "68a850e9..." }   // 或  { "at": "eyJhbGciOi..." }</code></pre>
+<p>响应:</p><pre><code>{
+  "ok": true, "status": "paid",
+  "display_id": "PAY-68A850E9", "order_id": "68a850e9...",
+  "email": "user@example.com",
+  "expires_at": 1780600000, "server_now": 1780543000
+}</code></pre>
+<p><b>status 全集</b>:</p>
+<table><tr><th>status</th><th>含义</th><th>卡密</th></tr>
+<tr><td><code>processing</code></td><td>开通中(已出码,自动付款,约 1–10 分钟)</td><td>已扣,待结果</td></tr>
+<tr><td><code>paid</code></td><td>✅ 开通成功,可用</td><td>已消耗</td></tr>
+<tr><td><code>failed</code></td><td>出码失败</td><td>已退回,可重试</td></tr>
+<tr><td><code>expired</code></td><td>订单过期未完成</td><td>已退回,可重试</td></tr>
+<tr><td><code>canceled</code></td><td>上游已取消</td><td>已退回,可重试</td></tr>
+</table>
+<div class=note>轮询建议:提交后每 20–30 秒查一次;<code>processing</code> 继续等,<code>paid</code> 即成功,<code>failed/expired/canceled</code> 即退卡密可重试。</div>
+
+<h3><span class=method>POST</span><code>/api/query</code> — 按卡密查全部订单+余额</h3>
+<pre><code>{ "code": "BX-XXXXXXXX" }</code></pre>
+<pre><code>{
+  "ok": true, "remaining": 7, "total": 10, "used": 3, "status_code": "active",
+  "orders": [
+    { "display_id": "PAY-68A850E9", "email": "user@example.com",
+      "status": "paid", "created_at": "2026-06-04 03:09", "paid_at": "2026-06-04 03:18" }
+  ]
+}</code></pre>
+
+<h2>三、对接示例</h2>
+<pre><code># 1) 查余额
+curl -s https://baxigpt.com/api/code-info -H 'Content-Type: application/json' -d '{"code":"BX-XXXXXXXX"}'
+
+# 2) 提交开通
+curl -s https://baxigpt.com/api/submit -H 'Content-Type: application/json' -d '{"code":"BX-XXXXXXXX","at":"eyJhbGciOi..."}'
+
+# 3) 轮询状态
+curl -s https://baxigpt.com/api/status -H 'Content-Type: application/json' -d '{"order_id":"68a850e9..."}'</code></pre>
+
+<h2>四、推荐流程</h2>
+<p>① <code>code-info</code> 确认余额 → ② <code>submit</code> 提交拿 <code>order_id</code>(processing)→ ③ 每 20–30s <code>status</code> 轮询 → ④ <code>paid</code> 收工;<code>failed/expired/canceled</code> 卡密已退、换号重试。</p>
+<p><small>成功开通约 1–10 分钟(取决于上游付款翻牌)。我们不保存任何 access token,仅用于本次开通。</small></p>
+</body></html>

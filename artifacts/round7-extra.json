@@ -1,0 +1,60 @@
+{
+  "admin_extra": [
+    {
+      "test": "form_login",
+      "status": 500,
+      "body": "Internal Server Error"
+    },
+    {
+      "test": "path:/api/admin/login/",
+      "status": 307,
+      "body": ""
+    },
+    {
+      "test": "path:/api/admin//login",
+      "status": 404,
+      "body": "{\"detail\":\"Not Found\"}"
+    },
+    {
+      "test": "path:/api/Admin/login",
+      "status": 404,
+      "body": "{\"detail\":\"Not Found\"}"
+    },
+    {
+      "test": "path:/API/ADMIN/LOGIN",
+      "status": 404,
+      "body": "{\"detail\":\"Not Found\"}"
+    },
+    {
+      "test": "path:/api/admin/login%00",
+      "status": 400,
+      "body": "<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body>\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "test": "path:/api/admin/login.json",
+      "status": 404,
+      "body": "{\"detail\":\"Not Found\"}"
+    },
+    {
+      "test": "cookie:session=admin",
+      "status": 401,
+      "body": "{\"ok\":false}"
+    },
+    {
+      "test": "cookie:session=.eJyrVkosLcmIz8nPS1WyUqqOUQoBAGh_BQ",
+      "status": 401,
+      "body": "{\"ok\":false}"
+    },
+    {
+      "test": "cookie:admin_session=1",
+      "status": 401,
+      "body": "{\"ok\":false}"
+    },
+    {
+      "test": "cookie:baxigpt_session=admin",
+      "status": 401,
+      "body": "{\"ok\":false}"
+    }
+  ],
+  "cards_found": []
+}
