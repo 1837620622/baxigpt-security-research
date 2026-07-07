@@ -1,0 +1,43 @@
+{
+  "live": true,
+  "tests": {
+    "homepage_security_headers": {
+      "Server": "nginx/1.24.0 (Ubuntu)",
+      "Date": "Tue, 07 Jul 2026 13:30:41 GMT",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": "19010",
+      "Connection": "close"
+    },
+    "login_failed_no_cookie": {
+      "status": 401,
+      "headers": {},
+      "body": "{\"ok\":false,\"msg\":\"密码错误\"}"
+    },
+    "query_duplicate_json_keys": {
+      "status": 200,
+      "body": "{\"ok\":false,\"msg\":\"卡密不存在\"}"
+    },
+    "stats_without_cookie": {
+      "status": 401,
+      "headers": {},
+      "body": "{\"ok\":false}"
+    },
+    "code_info_empty_string": {
+      "status": 200,
+      "headers": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Content-Type": "application/json"
+      },
+      "body": "{\"ok\":false,\"msg\":\"请输入卡密\"}"
+    },
+    "healthz": {
+      "status": 405,
+      "headers": {},
+      "body": "{\"detail\":\"Method Not Allowed\"}"
+    },
+    "healthz_get": {
+      "status": 200,
+      "body": "{\"ok\":true}"
+    }
+  }
+}

@@ -1,9 +1,9 @@
 # baxigpt.com 全量逆向分析报告
 
-> reverse-skill 路由：`api-security` + `js-reverse` + `pentest-tools/src-hunter` + `attack-chain`  
-> 分析时间：2026-07-07（Round 1–7 汇总）  
-> 性质：CTF 靶场授权测试  
-> 方法：被动侦察、OpenAPI/前端逆向、客户端源码恢复、多轮渗透、真实 DNS 复验
+> Assessment methodology: api-security + js-reverse + structured probing  
+> Analysis date: 2026-07-07 (phases 1–9 consolidated)  
+> Scope: Authorized read-only security research on the public API surface  
+> Methods: passive recon, OpenAPI/frontend reverse engineering, client-source recovery, scripted verification, live DNS revalidation
 
 ---
 
@@ -15,7 +15,7 @@
 | **最大弱点** | 应用层实现粗糙：OpenAPI 全暴露、BOLA 泄露、限流信任 XFF |
 | **后台状态** | 900+ 口令、全套绕过、SQLi/NoSQLi 均失败；`compare_digest` 正常 |
 | **子域/基础设施** | 仅 `www` 存在；nginx default server；无 HTTP/2/3 |
-| **CTF 最优链** | XFF 绕 429 → 卡密枚举 → `/api/query` 拉邮箱/订单 |
+| **Highest-impact chain** | XFF bypass → card enumeration → `/api/query` email/order disclosure |
 
 ---
 
@@ -256,7 +256,7 @@ SUFFIX  = 8 位 [A-Z0-9]（观察为随机，无校验位）
 - 开通至 `67_bashes_crawl@icloud.com`
 - 付费窗口 ~1 分钟（2026-07-07 10:56–10:57）
 
-### 8.3 枚举建议（CTF）
+### 8.3 Enumeration methodology
 
 ```python
 # exploits/ip_bypass_enum.py
@@ -265,7 +265,7 @@ SUFFIX  = 8 位 [A-Z0-9]（观察为随机，无校验位）
 # 3. ok=true → POST /api/query 拉全量
 ```
 
-模式词（FLAG/CTF/TEST 等 51 张）**零命中** → 需随机/变异枚举或赛题附件给卡密。
+Pattern tokens (FLAG/TEST/ADMIN etc., 51 probes) **zero new hits** → requires random/mutation enumeration or operator-issued codes.
 
 ---
 
@@ -273,7 +273,7 @@ SUFFIX  = 8 位 [A-Z0-9]（观察为随机，无校验位）
 
 ```
 尝试总量：
-  - 弱口令：900+（含 OSINT/CTF/路径 hash/组合词）
+  - 弱口令：900+（含 OSINT/路径 hash/组合词）
   - 绕过向量：30+（header/cookie/路径/类型/注入）
   - BFLA：5 端点 × 多 payload
 
@@ -285,7 +285,7 @@ SUFFIX  = 8 位 [A-Z0-9]（观察为随机，无校验位）
 
 ---
 
-## 10. CTF 攻击链推荐
+## 10. Recommended exploitation chain (defensive review)
 
 ```mermaid
 sequenceDiagram
@@ -308,29 +308,30 @@ sequenceDiagram
     Note over A,F: 若有 accessToken → submit → status IDOR
 ```
 
-### 优先级
+### Priority (risk remediation order)
 
-1. **拿分**：V1+V2+V3 写报告 + PoC 脚本演示
-2. **找 flag**：大规模卡密枚举（三通道）+ query 泄露
-3. **深挖**：submit 竞态、order_id 时间戳扫描（需真实 order_id）
-4. **暂停**：后台密码（除非赛题附件给 `ADMIN_PASSWORD`）
+1. **Document & reproduce**: rate-limit bypass, BOLA, OpenAPI exposure (PoC scripts)
+2. **Privacy impact**: large-scale card enumeration + `/api/query` aggregation
+3. **Further research**: submit race conditions, order_id scanning (requires valid tokens)
+4. **Deprioritize**: admin password brute force (900+ negatives; likely strong secret)
 
 ---
 
-## 11. 文件索引
+## 11. Repository file index
 
-| 类别 | 路径 |
-|------|------|
-| 总览 | `README.md`, `ANALYSIS.md` |
-| API | `API-ENDPOINTS.md`, `captures/openapi.json` |
-| 后台 | `ADMIN-PANEL.md`, `captures/admin-panel.html` |
-| 后端还原 | `BACKEND-RECONSTRUCTION.md` |
-| 漏洞 | `VULNERABILITIES.md`, `PENTEST-REPORT.md` |
-| 深度 | `DEEP-DIVE.md`, `SYSTEM-THINKING.md` |
-| 溯源 | `SOURCE-CHAIN.md`, `OPERATOR-OSINT.md` |
-| 客户端 | `recovered-code/plus_baxi.py` |
-| 利用脚本 | `exploits/ip_bypass_enum.py`, `round7_full_probe.py` |
-| 原始数据 | `artifacts/*.json` |
+| Category | Path |
+|----------|------|
+| Landing | `README.md` |
+| Primary report | `docs/SECURITY-REPORT.md` |
+| API | `docs/API-REFERENCE.md`, `captures/openapi.json` |
+| Admin surface | `docs/ADMIN-SURFACE.md`, `captures/admin-panel.html` |
+| Architecture | `docs/ARCHITECTURE.md` |
+| Threat intel | `docs/THREAT-INTELLIGENCE.md` |
+| Phase-9 findings | `docs/FINDINGS-ROUND9.md` |
+| Archive drafts | `docs/archive/` |
+| Client recovery | `recovered-code/plus_baxi.py` |
+| Scripts | `exploits/baxigpt_audit.py`, `exploits/ip_bypass_enum.py` |
+| Evidence | `artifacts/*.json` |
 
 ---
 

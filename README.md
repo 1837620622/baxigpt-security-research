@@ -2,6 +2,8 @@
 
 Independent security research and threat-intelligence documentation for **baxigpt.com** — a FastAPI-based ChatGPT Plus card-redemption gateway.
 
+> **Note:** The GitHub repository is named `baxigpt-security-research`. Local clones may use the directory name `baxigpt-reverse`; content is identical.
+
 This repository packages reconnaissance artifacts, inferred backend architecture, confirmed vulnerability analysis, and read-only proof-of-concept scripts suitable for security engineers, auditors, and integration partners evaluating API risk.
 
 ## Executive summary
