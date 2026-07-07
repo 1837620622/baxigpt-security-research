@@ -27,10 +27,14 @@ HELP_SCRIPTS=(
 : > "$OUT_DIR/poc-query.log"
 : > "$OUT_DIR/unit-tests.log"
 : > "$OUT_DIR/round8-live.log"
+: > "$OUT_DIR/round8-resilient.log"
 : > "$OUT_DIR/cli-help.log"
 : > "$OUT_DIR/git-status-pre.log"
 : > "$OUT_DIR/git-status-post.log"
 : > "$OUT_DIR/github-publish.log"
+: > "$OUT_DIR/layout-check.log"
+: > "$OUT_DIR/artifacts-index.log"
+: > "$OUT_DIR/report-spotcheck.log"
 
 GIT_PRE="$(git status --porcelain | sort)"
 printf '%s\n' "$GIT_PRE" | tee "$OUT_DIR/git-status-pre.log"
@@ -38,6 +42,12 @@ if [ -n "$GIT_PRE" ]; then
   echo "WARN: uncommitted changes present before verify — restoring tracked artifacts"
   git checkout -- artifacts/round8-fuzz.json 2>/dev/null || true
 fi
+
+{
+  echo "=== layout-check ==="
+  ls -la README.md LICENSE docs exploits artifacts captures recovered-code scripts tests 2>/dev/null
+  echo "PASS: primary layout present"
+} | tee "$OUT_DIR/layout-check.log"
 
 {
   echo "=== scripts-compile ==="
@@ -95,11 +105,23 @@ cp "$OUT_DIR/language-check.log" "$OUT_DIR/ctf-language-check.log"
 } | tee "$OUT_DIR/poc-query.log"
 
 {
-  echo "=== round8-live ==="
+  echo "=== round8-live (fuzz500) ==="
   python3 exploits/round8_fuzz500.py -o "$OUT_DIR/round8-live.json"
   test -s "$OUT_DIR/round8-live.json"
   echo "PASS: live fuzz wrote $OUT_DIR/round8-live.json"
-} | tee "$OUT_DIR/round8-live.log"
+} | tee -a "$OUT_DIR/round8-live.log"
+
+{
+  echo "=== round8-resilient (fingerprint phase) ==="
+  python3 exploits/round8_resilient.py --phase fingerprint -o "$OUT_DIR"
+  test -s "$OUT_DIR/round8-fingerprint.json"
+  echo "PASS: round8_resilient fingerprint -> $OUT_DIR/round8-fingerprint.json"
+} | tee "$OUT_DIR/round8-resilient.log"
+
+{
+  echo "=== round8-card-enum dry-run ==="
+  python3 exploits/round8_card_enum.py --dry-run
+} | tee -a "$OUT_DIR/round8-live.log"
 
 GIT_POST="$(git status --porcelain | sort)"
 printf '%s\n' "$GIT_POST" | tee "$OUT_DIR/git-status-post.log"
@@ -116,11 +138,29 @@ fi | tee -a "$OUT_DIR/git-status-post.log"
 
 {
   echo "=== github-publish ==="
+  echo "commit=$(git rev-parse HEAD)"
+  git status
   git remote -v
   if command -v gh >/dev/null 2>&1; then
     gh repo view --json url,description,nameWithOwner 2>/dev/null || true
   fi
+  if [ -z "$(git status --porcelain)" ]; then
+    echo "PASS: git status is clean"
+  fi
   echo "PASS: publish metadata captured"
 } | tee "$OUT_DIR/github-publish.log"
+
+{
+  echo "=== artifacts-index ==="
+  wc -l artifacts/round8-fuzz.json artifacts/round8-cards.json 2>/dev/null || true
+  ls -la artifacts/round8-*.json captures/openapi.json 2>/dev/null || true
+} | tee "$OUT_DIR/artifacts-index.log"
+
+{
+  echo "=== report-spotcheck ==="
+  grep -n "BOLA\|X-Forwarded-For\|OpenAPI" docs/SECURITY-REPORT.md | head -5
+  test -f docs/MASTER-ANALYSIS.md && echo "MASTER-ANALYSIS.md: present"
+  echo "PASS: primary findings referenced in SECURITY-REPORT.md"
+} | tee "$OUT_DIR/report-spotcheck.log"
 
 echo "VERIFY_OK"

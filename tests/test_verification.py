@@ -111,6 +111,8 @@ class TestExploitScriptsHelp(unittest.TestCase):
             )
             self.assertEqual(proc.returncode, 0, f"{name}: {proc.stderr}")
             self.assertNotRegex(proc.stdout, r"[\u4e00-\u9fff]", msg=name)
+            if name in ("round8_resilient.py", "round8_card_enum.py", "round7_full_probe.py"):
+                self.assertIn("examples:", proc.stdout.lower(), msg=name)
 
 
 class TestReleaseGate(unittest.TestCase):
@@ -134,8 +136,14 @@ class TestReleaseGate(unittest.TestCase):
             self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
             self.assertIn("VERIFY_OK", proc.stdout)
             self.assertTrue((Path(tmp) / "round8-live.json").is_file())
+            self.assertTrue((Path(tmp) / "round8-fingerprint.json").is_file())
+            publish = (Path(tmp) / "github-publish.log").read_text(encoding="utf-8")
+            self.assertIn("commit=", publish)
+            self.assertIn("PASS: git status is clean", publish)
             post = (Path(tmp) / "git-status-post.log").read_text(encoding="utf-8")
             self.assertRegex(post, r"PASS: git status (is clean|unchanged by verify)")
+            live_log = (Path(tmp) / "round8-live.log").read_text(encoding="utf-8")
+            self.assertIn("round8-live", live_log)
 
 
 class TestPocOutputShape(unittest.TestCase):
