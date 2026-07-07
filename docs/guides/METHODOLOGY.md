@@ -51,8 +51,8 @@ This project documents a structured security review of the baxigpt.com web appli
 ## Evidence retention
 
 - **evidence/snapshots/** — raw HTTP/HTML/JSON snapshots
-- **artifacts/** — machine-readable probe output (JSON)
-- **docs/archive/** — earlier draft reports superseded by `SECURITY-REPORT.md`
+- **evidence/probes/** — machine-readable probe output (JSON), by phase
+- **docs/archive/** — earlier draft reports superseded by `docs/reports/SECURITY-REPORT.md`
 
 ## Ethical constraints
 
