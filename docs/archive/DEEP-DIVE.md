@@ -238,7 +238,7 @@ payload["https://api.openai.com/profile"]["email"]
 → 交叉验证 ChatGPT plan
 ```
 
-见 `recovered-code/` 与 GitHub `web/manager.py`。
+见 `third-party/` 与 GitHub `web/manager.py`。
 
 ---
 

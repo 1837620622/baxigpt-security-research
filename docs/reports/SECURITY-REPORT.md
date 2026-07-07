@@ -39,8 +39,8 @@ FastAPI "baxigpt" 0.1.0
 Inferred data stores + upstream PIX/BLIK + OpenAI API
 ```
 
-Deeper architecture notes: [ARCHITECTURE.md](./ARCHITECTURE.md)  
-Threat intelligence / supply chain: [THREAT-INTELLIGENCE.md](./THREAT-INTELLIGENCE.md)
+Deeper architecture notes: [ARCHITECTURE.md](./reference/ARCHITECTURE.md)  
+Threat intelligence / supply chain: [THREAT-INTELLIGENCE.md](./reference/THREAT-INTELLIGENCE.md)
 
 ---
 
@@ -65,7 +65,7 @@ curl -s https://baxigpt.com/api/code-info \
   -d '{"code":"EU-TEST0000"}'
 ```
 
-**Evidence:** `artifacts/pentest-enum-bypass.json`, `artifacts/pentest-ip-fuzz.json`
+**Evidence:** `evidence/probes/pentest/pentest-enum-bypass.json`, `evidence/probes/pentest/pentest-ip-fuzz.json`
 
 **Recommendation:** Rate-limit on `remote_addr` as set by nginx; strip or ignore client-supplied forwarding headers at the application layer.
 
@@ -99,7 +99,7 @@ python3 exploits/baxigpt_audit.py query --code EU-HFNDFHD4
 
 Extra JSON keys such as `"admin": true` are **ignored** — no privilege escalation, but privacy impact remains.
 
-**Evidence:** `artifacts/round8-fuzz.json`, `docs/archive/CARD-TEST-EU-HFNDFHD4.md`
+**Evidence:** `evidence/probes/round8/round8-fuzz.json`, `docs/archive/CARD-TEST-EU-HFNDFHD4.md`
 
 **Recommendation:** Require an additional verifier (email OTP, order PIN), or return only non-sensitive aggregates.
 
@@ -118,7 +118,7 @@ Extra JSON keys such as `"admin": true` are **ignored** — no privilege escalat
 curl -s https://baxigpt.com/openapi.json | python3 -m json.tool | head -40
 ```
 
-**Evidence:** `captures/openapi.json`
+**Evidence:** `evidence/snapshots/openapi.json`
 
 **Recommendation:** Disable schema endpoints in production; exclude admin routers from published OpenAPI.
 
@@ -128,7 +128,7 @@ curl -s https://baxigpt.com/openapi.json | python3 -m json.tool | head -40
 
 Unlike public endpoints (which return `429` after repeated failures), `POST /api/admin/login` accepted **900+** invalid attempts without lockout, CAPTCHA, or backoff.
 
-**Evidence:** `artifacts/pentest-bruteforce.json`, `artifacts/round7-full.json`
+**Evidence:** `evidence/probes/pentest/pentest-bruteforce.json`, `evidence/probes/round7/round7-full.json`
 
 **Recommendation:** Per-IP and per-account throttling; optional 2FA for admin operations.
 
@@ -138,7 +138,7 @@ Unlike public endpoints (which return `429` after repeated failures), `POST /api
 
 Supplying non-string types for `code`, `at`, or `password` triggers generic `500 Internal Server Error`. No stack traces were observed in responses.
 
-**Evidence:** `artifacts/round8-fuzz.json` (36 payloads, 18× HTTP 500)
+**Evidence:** `evidence/probes/round8/round8-fuzz.json` (36 payloads, 18× HTTP 500)
 
 **Recommendation:** Strict Pydantic models and a global exception handler returning `422 Unprocessable Entity`.
 
@@ -165,7 +165,7 @@ Responses lack `Strict-Transport-Security`, `Content-Security-Policy`, and `X-Fr
 | Card enumeration (pattern + random) | 384 codes | Only known exhausted card |
 | Second deployment (fingerprint hunt) | GitHub + related domains | None found |
 
-Artifacts for negative results: `artifacts/round8-idor.json`, `artifacts/round8-cards.json`, `artifacts/round8-fingerprint.json`
+Artifacts for negative results: `evidence/probes/round8/round8-idor.json`, `evidence/probes/round8/round8-cards.json`, `evidence/probes/round8/round8-fingerprint.json`
 
 ---
 
@@ -177,7 +177,7 @@ Artifacts for negative results: `artifacts/round8-idor.json`, `artifacts/round8-
 | `exploits/ip_bypass_enum.py` | Rate-limit bypass + card probe |
 | `exploits/round8_fuzz500.py` | Type-confusion fuzz (read-only) |
 
-See [REPRODUCTION.md](./REPRODUCTION.md) for full usage.
+See [REPRODUCTION.md](./guides/REPRODUCTION.md) for full usage.
 
 ---
 
@@ -191,9 +191,9 @@ This assessment was conducted with read-only API calls and documented minimal pr
 
 | Document | Contents |
 |----------|----------|
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Backend reconstruction, data model |
-| [API-REFERENCE.md](./API-REFERENCE.md) | Endpoint contracts |
-| [ADMIN-SURFACE.md](./ADMIN-SURFACE.md) | Hidden admin UI analysis |
-| [THREAT-INTELLIGENCE.md](./THREAT-INTELLIGENCE.md) | Operator OSINT, supply chain |
-| [METHODOLOGY.md](./METHODOLOGY.md) | Assessment phases and tooling |
-| [REPRODUCTION.md](./REPRODUCTION.md) | Step-by-step PoC commands |
+| [ARCHITECTURE.md](./reference/ARCHITECTURE.md) | Backend reconstruction, data model |
+| [API-REFERENCE.md](./reference/API-REFERENCE.md) | Endpoint contracts |
+| [ADMIN-SURFACE.md](./reference/ADMIN-SURFACE.md) | Hidden admin UI analysis |
+| [THREAT-INTELLIGENCE.md](./reference/THREAT-INTELLIGENCE.md) | Operator OSINT, supply chain |
+| [METHODOLOGY.md](./guides/METHODOLOGY.md) | Assessment phases and tooling |
+| [REPRODUCTION.md](./guides/REPRODUCTION.md) | Step-by-step PoC commands |

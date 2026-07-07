@@ -17,12 +17,12 @@ PATTERN = re.compile("|".join(re.escape(x) for x in (_TOKEN, _CN_A, _CN_B)), re.
 
 PRIMARY_PATHS = [
     REPO / "README.md",
-    REPO / "docs" / "SECURITY-REPORT.md",
-    REPO / "docs" / "REPRODUCTION.md",
-    REPO / "docs" / "METHODOLOGY.md",
+    REPO / "docs" / "reports" / "SECURITY-REPORT.md",
+    REPO / "docs" / "guides" / "REPRODUCTION.md",
+    REPO / "docs" / "guides" / "METHODOLOGY.md",
     REPO / "docs" / "INDEX.md",
-    REPO / "docs" / "ARCHITECTURE.md",
-    REPO / "docs" / "FINDINGS-ROUND9.md",
+    REPO / "docs" / "reference" / "ARCHITECTURE.md",
+    REPO / "docs" / "reports" / "FINDINGS-ROUND9.md",
 ]
 
 

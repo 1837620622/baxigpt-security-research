@@ -40,12 +40,12 @@ GIT_PRE="$(git status --porcelain | sort)"
 printf '%s\n' "$GIT_PRE" | tee "$OUT_DIR/git-status-pre.log"
 if [ -n "$GIT_PRE" ]; then
   echo "WARN: uncommitted changes present before verify — restoring tracked artifacts"
-  git checkout -- artifacts/round8-fuzz.json 2>/dev/null || true
+  git checkout -- evidence/probes/round8/round8-fuzz.json 2>/dev/null || true
 fi
 
 {
   echo "=== layout-check ==="
-  ls -la README.md LICENSE docs exploits artifacts captures recovered-code scripts tests 2>/dev/null
+  ls -la README.md LICENSE docs evidence exploits third-party scripts tests 2>/dev/null
   echo "PASS: primary layout present"
 } | tee "$OUT_DIR/layout-check.log"
 
@@ -59,8 +59,8 @@ fi
   echo "=== language-check ==="
   echo "pattern_token=$TOKEN"
   echo "pattern_cn=比赛|靶场"
-  for f in README.md docs/SECURITY-REPORT.md docs/REPRODUCTION.md docs/METHODOLOGY.md \
-           docs/INDEX.md docs/ARCHITECTURE.md docs/FINDINGS-ROUND9.md; do
+  for f in README.md docs/reports/SECURITY-REPORT.md docs/guides/REPRODUCTION.md docs/guides/METHODOLOGY.md \
+           docs/INDEX.md docs/reference/ARCHITECTURE.md docs/reports/FINDINGS-ROUND9.md; do
     echo "scan: $f"
   done
   for f in exploits/*.py tests/test_baxigpt_audit.py; do
@@ -152,14 +152,14 @@ fi | tee -a "$OUT_DIR/git-status-post.log"
 
 {
   echo "=== artifacts-index ==="
-  wc -l artifacts/round8-fuzz.json artifacts/round8-cards.json 2>/dev/null || true
-  ls -la artifacts/round8-*.json captures/openapi.json 2>/dev/null || true
+  wc -l evidence/probes/round8/round8-fuzz.json evidence/probes/round8/round8-cards.json 2>/dev/null || true
+  ls -la evidence/probes/round8/*.json evidence/snapshots/openapi.json 2>/dev/null || true
 } | tee "$OUT_DIR/artifacts-index.log"
 
 {
   echo "=== report-spotcheck ==="
-  grep -n "BOLA\|X-Forwarded-For\|OpenAPI" docs/SECURITY-REPORT.md | head -5
-  test -f docs/MASTER-ANALYSIS.md && echo "MASTER-ANALYSIS.md: present"
+  grep -n "BOLA\|X-Forwarded-For\|OpenAPI" docs/reports/SECURITY-REPORT.md | head -5
+  test -f docs/reports/MASTER-ANALYSIS.md && echo "MASTER-ANALYSIS.md: present"
   echo "PASS: primary findings referenced in SECURITY-REPORT.md"
 } | tee "$OUT_DIR/report-spotcheck.log"
 

@@ -163,7 +163,7 @@ action: {code, action: disable|enable|delete}
 
 ## 5. 源码链与运营溯源
 
-### 5.1 客户端恢复（recovered-code/）
+### 5.1 客户端恢复（third-party/）
 
 | 文件 | 来源 | 用途 |
 |------|------|------|
@@ -322,16 +322,16 @@ sequenceDiagram
 | Category | Path |
 |----------|------|
 | Landing | `README.md` |
-| Primary report | `docs/SECURITY-REPORT.md` |
-| API | `docs/API-REFERENCE.md`, `captures/openapi.json` |
-| Admin surface | `docs/ADMIN-SURFACE.md`, `captures/admin-panel.html` |
-| Architecture | `docs/ARCHITECTURE.md` |
-| Threat intel | `docs/THREAT-INTELLIGENCE.md` |
-| Phase-9 findings | `docs/FINDINGS-ROUND9.md` |
+| Primary report | `docs/reports/SECURITY-REPORT.md` |
+| API | `docs/reference/API-REFERENCE.md`, `evidence/snapshots/openapi.json` |
+| Admin surface | `docs/reference/ADMIN-SURFACE.md`, `evidence/snapshots/admin-panel.html` |
+| Architecture | `docs/reference/ARCHITECTURE.md` |
+| Threat intel | `docs/reference/THREAT-INTELLIGENCE.md` |
+| Phase-9 findings | `docs/reports/FINDINGS-ROUND9.md` |
 | Archive drafts | `docs/archive/` |
-| Client recovery | `recovered-code/plus_baxi.py` |
+| Client recovery | `third-party/plus_baxi.py` |
 | Scripts | `exploits/baxigpt_audit.py`, `exploits/ip_bypass_enum.py` |
-| Evidence | `artifacts/*.json` |
+| Evidence | `evidence/probes/**/*.json` |
 
 ---
 

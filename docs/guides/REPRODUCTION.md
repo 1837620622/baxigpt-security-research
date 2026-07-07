@@ -48,7 +48,7 @@ python3 exploits/ip_bypass_enum.py --code EU-HFNDFHD4 --query
 ## Type-confusion fuzz (generates 500s; use sparingly)
 
 ```bash
-# Live run — write to scratch, not artifacts/
+# Live run — write to scratch, not evidence/probes/
 OUT=/tmp/baxigpt-verify/round8-live.json
 python3 exploits/round8_fuzz500.py -o "$OUT"
 
@@ -56,7 +56,7 @@ python3 exploits/round8_fuzz500.py -o "$OUT"
 python3 exploits/round8_fuzz500.py --dry-run
 ```
 
-Committed evidence: `artifacts/round8-fuzz.json`
+Committed evidence: `evidence/probes/round8/round8-fuzz.json`
 
 ## Manual curl equivalents
 
@@ -72,8 +72,8 @@ curl -s -X POST https://baxigpt.com/api/query \
 
 | Finding | Artifact |
 |---------|----------|
-| BOLA | `artifacts/round8-fuzz.json`, `artifacts/round8-cards.json` |
-| Rate bypass | `artifacts/pentest-enum-bypass.json` |
-| Fuzz 500s | `artifacts/round8-fuzz.json` |
-| Admin brute negatives | `artifacts/round7-full.json` |
-| Captured OpenAPI | `captures/openapi.json` |
+| BOLA | `evidence/probes/round8/round8-fuzz.json`, `evidence/probes/round8/round8-cards.json` |
+| Rate bypass | `evidence/probes/pentest/pentest-enum-bypass.json` |
+| Fuzz 500s | `evidence/probes/round8/round8-fuzz.json` |
+| Admin brute negatives | `evidence/probes/round7/round7-full.json` |
+| Captured OpenAPI | `evidence/snapshots/openapi.json` |

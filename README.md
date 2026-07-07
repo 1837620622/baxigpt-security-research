@@ -15,7 +15,7 @@
 | **关键问题** | 速率限制绕过（XFF）、`/api/query` BOLA、OpenAPI 泄露管理端、管理登录策略薄弱 |
 | **管理端** | 未突破；会话认证经大量测试仍未取得访问 |
 
-完整分析见 **[docs/SECURITY-REPORT.md](docs/SECURITY-REPORT.md)**
+完整分析见 **[docs/reports/SECURITY-REPORT.md](docs/reports/SECURITY-REPORT.md)**
 
 ## 快速复现
 
@@ -26,7 +26,7 @@ python3 exploits/baxigpt_audit.py code-info --code EU-HFNDFHD4
 python3 exploits/baxigpt_audit.py query --code EU-HFNDFHD4
 ```
 
-全部命令见 **[docs/REPRODUCTION.md](docs/REPRODUCTION.md)**。
+全部命令见 **[docs/guides/REPRODUCTION.md](docs/guides/REPRODUCTION.md)**。
 
 ```bash
 OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
@@ -36,33 +36,34 @@ OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
 
 ```
 .
-├── README.md                 # 本文件
-├── LICENSE                   # MIT（脚本）；研究免责声明见下文
-├── docs/
-│   ├── SECURITY-REPORT.md    # 主报告：漏洞与发现
-│   ├── REPRODUCTION.md       # PoC 复现命令
-│   ├── ARCHITECTURE.md       # 后端架构重建
-│   ├── API-REFERENCE.md      # 接口说明
-│   ├── ADMIN-SURFACE.md      # 管理端界面分析
-│   ├── THREAT-INTELLIGENCE.md
-│   ├── METHODOLOGY.md
+├── README.md
+├── LICENSE
+├── docs/                       # 文档（报告 / 参考 / 指南 / 归档）
 │   ├── INDEX.md
-│   └── archive/              # 早期工作草稿
-├── exploits/                 # 只读审计脚本
-├── artifacts/                # 探测 JSON 输出
-├── captures/                 # 原始 HTTP/HTML 快照
-└── recovered-code/           # 第三方 API 客户端（来自 GitHub）
+│   ├── reports/                # 核心报告
+│   ├── reference/              # 架构、API、管理端、威胁情报
+│   ├── guides/                 # 复现与方法
+│   └── archive/                # 早期草稿
+├── evidence/                   # 取证材料（见 evidence/README.md）
+│   ├── snapshots/              # HTML / OpenAPI 快照
+│   ├── probes/                 # 按阶段分类的 JSON
+│   ├── extracted/              # 提取的 JS、端点列表
+│   └── logs/                   # 运行日志
+├── exploits/                   # 只读脚本（见 exploits/README.md）
+├── third-party/                # 恢复的第三方客户端
+├── scripts/                    # verify_release.sh 等
+└── tests/
 ```
 
 ## 已确认发现（摘要）
 
-1. **速率限制绕过** — 轮换 `X-Forwarded-For` 可避开 `HTTP 429`（[证据](artifacts/pentest-enum-bypass.json)）
-2. **BOLA / 隐私泄露** — `POST /api/query` 仅凭卡密即可返回全部订单与邮箱（[证据](artifacts/round8-cards.json)）
-3. **OpenAPI 暴露** — `/openapi.json` 列出隐藏管理端路由（[快照](captures/openapi.json)）
-4. **管理登录策略** — `/api/admin/login` 未观察到节流（[证据](artifacts/round7-full.json)）
-5. **输入校验缺陷** — 类型错误触发 HTTP 500（[证据](artifacts/round8-fuzz.json)）
+1. **速率限制绕过** — 轮换 `X-Forwarded-For` 可避开 `HTTP 429`（[证据](evidence/probes/pentest/pentest-enum-bypass.json)）
+2. **BOLA / 隐私泄露** — `POST /api/query` 仅凭卡密即可返回全部订单与邮箱（[证据](evidence/probes/round8/round8-cards.json)）
+3. **OpenAPI 暴露** — `/openapi.json` 列出隐藏管理端路由（[快照](evidence/snapshots/openapi.json)）
+4. **管理登录策略** — `/api/admin/login` 未观察到节流（[证据](evidence/probes/round7/round7-full.json)）
+5. **输入校验缺陷** — 类型错误触发 HTTP 500（[证据](evidence/probes/round8/round8-fuzz.json)）
 
-## 脚本
+## 脚本速查
 
 | 脚本 | 说明 |
 |------|------|
@@ -76,7 +77,7 @@ OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
 
 ## 威胁情报
 
-该服务与卡密分销生态（chirou.ai / web3chirou.com）相关联，主要分发 EU/PIX 卡密。站点本身未公开客服联系方式。详见 [docs/THREAT-INTELLIGENCE.md](docs/THREAT-INTELLIGENCE.md)。
+该服务与卡密分销生态（chirou.ai / web3chirou.com）相关联，主要分发 EU/PIX 卡密。详见 [docs/reference/THREAT-INTELLIGENCE.md](docs/reference/THREAT-INTELLIGENCE.md)。
 
 ## 免责声明
 
@@ -88,4 +89,4 @@ OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
 
 ## 许可证
 
-MIT License — 见 [LICENSE](LICENSE)。研究正文与第三方抓取内容仍受各自条款约束。
+MIT License — 见 [LICENSE](LICENSE)。

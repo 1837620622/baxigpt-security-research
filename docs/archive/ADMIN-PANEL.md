@@ -7,10 +7,10 @@ https://baxigpt.com/bx-admin-9f3c7a2e1b
 https://baxigpt.com/bx-admin-9f3c7a2e1b/
 ```
 
-原件：`captures/admin-panel.html`  
-提取 JS：`artifacts/admin-panel.js`
+原件：`evidence/snapshots/admin-panel.html`  
+提取 JS：`evidence/extracted/admin-panel.js`
 
-> 该路径虽看似隐藏，但已完整列在 `captures/openapi.json` 中。
+> 该路径虽看似隐藏，但已完整列在 `evidence/snapshots/openapi.json` 中。
 
 ## 登录
 

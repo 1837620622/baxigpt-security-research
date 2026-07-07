@@ -166,4 +166,4 @@ python3 exploits/subdomain_probe.py
 |------|------|
 | `SUBDOMAIN-REPORT.md` | 本报告 |
 | `exploits/subdomain_probe.py` | DNS + vhost 扫描脚本 |
-| `artifacts/subdomain-probe.log` | 扫描日志（含 Fake-IP 列表） |
+| `evidence/probes/recon/subdomain-probe.log` | 扫描日志（含 Fake-IP 列表） |

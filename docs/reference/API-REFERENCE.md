@@ -8,7 +8,7 @@ Base URL：`https://baxigpt.com`
 - 成功：`{"ok": true, ...}`
 - 失败：`{"ok": false, "msg": "中文原因"}`
 
-完整路由清单见 `artifacts/endpoints.txt` 与 `captures/openapi.json`。
+完整路由清单见 `evidence/extracted/endpoints.txt` 与 `evidence/snapshots/openapi.json`。
 
 ## 公开接口
 
@@ -163,4 +163,4 @@ Base URL：`https://baxigpt.com`
 
 ## 第三方调用示例
 
-见 `recovered-code/plus_baxi.py`。
+见 `third-party/plus_baxi.py`。

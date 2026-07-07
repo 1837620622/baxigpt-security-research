@@ -163,7 +163,7 @@ action: {code, action: disable|enable|delete}
 
 ## 5. 源码链与运营溯源
 
-### 5.1 客户端恢复（recovered-code/）
+### 5.1 客户端恢复（third-party/）
 
 | 文件 | 来源 | 用途 |
 |------|------|------|
@@ -322,15 +322,15 @@ sequenceDiagram
 | 类别 | 路径 |
 |------|------|
 | 总览 | `README.md`, `ANALYSIS.md` |
-| API | `API-ENDPOINTS.md`, `captures/openapi.json` |
-| 后台 | `ADMIN-PANEL.md`, `captures/admin-panel.html` |
+| API | `API-ENDPOINTS.md`, `evidence/snapshots/openapi.json` |
+| 后台 | `ADMIN-PANEL.md`, `evidence/snapshots/admin-panel.html` |
 | 后端还原 | `BACKEND-RECONSTRUCTION.md` |
 | 漏洞 | `VULNERABILITIES.md`, `PENTEST-REPORT.md` |
 | 深度 | `DEEP-DIVE.md`, `SYSTEM-THINKING.md` |
 | 溯源 | `SOURCE-CHAIN.md`, `OPERATOR-OSINT.md` |
-| 客户端 | `recovered-code/plus_baxi.py` |
+| 客户端 | `third-party/plus_baxi.py` |
 | 利用脚本 | `exploits/ip_bypass_enum.py`, `round7_full_probe.py` |
-| 原始数据 | `artifacts/*.json` |
+| 原始数据 | `evidence/probes/**/*.json` |
 
 ---
 

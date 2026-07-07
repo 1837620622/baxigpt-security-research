@@ -171,11 +171,11 @@ curl -s https://baxigpt.com/api/query \
 
 | 文件 | 内容 |
 |------|------|
-| `artifacts/round8-cards.json` | 卡密枚举结果 |
-| `artifacts/round8-idor.json` | ObjectId IDOR |
-| `artifacts/round8-fuzz.json` | 500 fuzz 全量 |
-| `artifacts/round8-fingerprint.json` | 同指纹探测 |
-| `artifacts/round7-full.json` | DNS/绕过/口令 |
+| `evidence/probes/round8/round8-cards.json` | 卡密枚举结果 |
+| `evidence/probes/round8/round8-idor.json` | ObjectId IDOR |
+| `evidence/probes/round8/round8-fuzz.json` | 500 fuzz 全量 |
+| `evidence/probes/round8/round8-fingerprint.json` | 同指纹探测 |
+| `evidence/probes/round7/round7-full.json` | DNS/绕过/口令 |
 | `MASTER-REVERSE-ANALYSIS.md` | 全量逆向 |
 | `exploits/ip_bypass_enum.py` | 可复现 PoC 脚本 |
 

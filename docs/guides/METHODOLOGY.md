@@ -15,7 +15,7 @@ This project documents a structured security review of the baxigpt.com web appli
 
 - Frontend JavaScript static analysis (inline bundles)
 - OpenAPI `operationId` → inferred Python handler names
-- Third-party client recovery from public Git repositories (`recovered-code/`)
+- Third-party client recovery from public Git repositories (`third-party/`)
 
 ### 3. Authorization testing
 
@@ -25,7 +25,7 @@ This project documents a structured security review of the baxigpt.com web appli
 
 ### 4. Input validation
 
-- Type confusion and malformed JSON (documented in `artifacts/round8-fuzz.json`)
+- Type confusion and malformed JSON (documented in `evidence/probes/round8/round8-fuzz.json`)
 - HTTP method matrix (public API is POST-only for JSON routes)
 
 ### 5. Infrastructure
@@ -50,7 +50,7 @@ This project documents a structured security review of the baxigpt.com web appli
 
 ## Evidence retention
 
-- **captures/** — raw HTTP/HTML/JSON snapshots
+- **evidence/snapshots/** — raw HTTP/HTML/JSON snapshots
 - **artifacts/** — machine-readable probe output (JSON)
 - **docs/archive/** — earlier draft reports superseded by `SECURITY-REPORT.md`
 

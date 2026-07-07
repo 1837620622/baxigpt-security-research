@@ -265,4 +265,4 @@ operationId admin_login_api_admin_login_post
 | `SOURCE-CHAIN.md` | 开源/分销结论 |
 | `BACKEND-RECONSTRUCTION.md` | 伪代码逻辑 |
 | `exploits/ip_bypass_enum.py` | 限流绕过枚举 |
-| `artifacts/pentest-*.json` | 原始探测数据 |
+| `evidence/probes/pentest/pentest-*.json` | 原始探测数据 |

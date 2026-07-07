@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-07  
 **Script:** `exploits/explore_round9.py`  
-**Evidence:** `artifacts/round9-explore.json`
+**Evidence:** `evidence/probes/round9/round9-explore.json`
 
 This phase extends prior work with targeted edge-case probes not fully covered in phases 1–8.
 
@@ -31,10 +31,10 @@ Sending raw JSON `{"code":"EU-HFNDFHD4","code":"EU-OTHER00"}` triggers **last-ke
 ## Reproduction
 
 ```bash
-python3 exploits/explore_round9.py          # live probes → artifacts/round9-explore.json
+python3 exploits/explore_round9.py          # live probes → evidence/probes/round9/round9-explore.json
 python3 exploits/explore_round9.py --dry-run
 ```
 
 ## Impact summary
 
-No new critical vulnerabilities beyond those documented in [SECURITY-REPORT.md](./SECURITY-REPORT.md). Phase-9 strengthens negative evidence (admin session handling, header posture) and documents JSON edge-case behavior for integrators.
+No new critical vulnerabilities beyond those documented in [SECURITY-REPORT.md](./reports/SECURITY-REPORT.md). Phase-9 strengthens negative evidence (admin session handling, header posture) and documents JSON edge-case behavior for integrators.

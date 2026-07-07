@@ -32,7 +32,7 @@
 
 ### 1. Observe（页面观察）
 
-- 抓取首页 `captures/homepage.html`（19KB 单文件）
+- 抓取首页 `evidence/snapshots/homepage.html`（19KB 单文件）
 - 提取 4 个 `fetch()` 端点：`/api/code-info`, `/api/submit`, `/api/status`, `/api/query`
 - 识别卡密前缀 `BX-/PL-/EU-` 与 PIX 上游文案
 
@@ -44,9 +44,9 @@
 
 ### 3. Rebuild（逻辑还原）
 
-- 从用户页 JS 还原开通状态机与轮询逻辑 → `artifacts/homepage.js`
-- 从后台 HTML 还原管理功能与数据模型 → `artifacts/admin-panel.js`
-- 从 GitHub 恢复第三方客户端 `recovered-code/plus_baxi.py`
+- 从用户页 JS 还原开通状态机与轮询逻辑 → `evidence/extracted/homepage.js`
+- 从后台 HTML 还原管理功能与数据模型 → `evidence/extracted/admin-panel.js`
+- 从 GitHub 恢复第三方客户端 `third-party/plus_baxi.py`
 
 ### 4. DeepDive（关联溯源）
 
@@ -102,5 +102,5 @@ id, code, email, display_id, pix_order_id, status, created_at, paid_at, error
 - API：`API-ENDPOINTS.md`
 - 风险：`VULNERABILITIES.md`
 - 指纹：`INDICATORS.md`
-- 原件：`captures/`
-- 代码：`recovered-code/`
+- 原件：`evidence/snapshots/`
+- 代码：`third-party/`

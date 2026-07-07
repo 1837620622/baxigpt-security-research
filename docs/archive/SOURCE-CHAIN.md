@@ -60,7 +60,7 @@ baxigpt.com 兑换网关（本站点）
 | `tiantianGPU/reg-factory` | `common/plus_baxi.py`, `activate_plus.py` | 2026-06-25 删除 |
 | `ryugadev/AUTO-REGGPT` | `web/manager.py` Auto CDK 流程 | 仍在使用 |
 
-恢复后的客户端见 `recovered-code/`。
+恢复后的客户端见 `third-party/`。
 
 ## 6. 上游支付线索
 
