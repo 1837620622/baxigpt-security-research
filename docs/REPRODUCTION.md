@@ -7,6 +7,14 @@ All commands assume repository root and Python 3.10+.
 ```bash
 cd baxigpt-security-research   # or your clone path
 python3 -m py_compile exploits/*.py
+python3 -m unittest discover -s tests -v
+```
+
+## Release verification
+
+```bash
+OUT_DIR=/tmp/baxigpt-verify ./scripts/verify_release.sh
+# Produces: scripts-compile.log, language-check.log, poc-*.log, unit-tests.log
 ```
 
 ## Unified audit CLI
